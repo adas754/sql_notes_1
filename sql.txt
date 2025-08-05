@@ -1,0 +1,33 @@
+create table customers10(
+cid int unique,
+name varchar(255) not null,
+email varchar(255)
+);
+
+INSERT INTO customers10(cid, name,email)
+VALUES (4,'a','adas@'),
+(5,'a','yuu');
+
+
+create table ticket2(
+ticket_id 
+int primary key auto_increment,
+name varchar(25) not null,
+travel datetime 
+default current_timestamp);
+insert into ticket2(name)
+values('JHJ'),
+('ghj');
+
+
+
+create table studen7(
+student_id integer primary 
+key auto_increment,
+name varchar(50) not null,
+age int check(age>25)
+);
+
+INSERT INTO studen7 (name,age) 
+VALUES
+('k',26);
