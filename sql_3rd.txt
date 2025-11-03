@@ -1,0 +1,49 @@
+----------------------- 3rd ---------------------------------
+use customers;
+
+select*from sales;
+select orderid,orderdate,country,region from sales;
+select distinct (category) from sales;
+select orderid as id from sales;
+select*from sales where category='Technology';
+select*from sales where quantity>10;
+select*from sales where sales<50;
+select*from sales where state='Texas' and category='Technology';
+select*from sales where quantity>5 and category='Technology' and subcategory='Phones';
+select*from sales where category='Technology' or category='Office Supplies';
+select*from sales where subcategory='Phones' or subcategory='Paper' or subcategory='Art';
+select*from sales where not category='Technology';
+select*from sales where not region='Central';
+select*from sales where category='Technology' order by orderdate asc;
+select*from sales where state='Texas' order by quantity asc;
+select*from sales where category is null;
+select*from sales where category is not null;
+select*from sales where category ='Technology' order by sales desc limit 5;
+SELECT * FROM sales WHERE category = 'Technology' ORDER BY sales DESC LIMIT 2;
+select distinct(subcategory) from sales;
+SELECT * FROM sales WHERE subcategory in('Art','Phones','Paper');
+select* from sales where quantity between 2 and 4;
+SELECT * 
+FROM sales 
+WHERE STR_TO_DATE(orderdate, '%d-%m-%Y') 
+      BETWEEN STR_TO_DATE('01-01-2016', '%d-%m-%Y') 
+          AND STR_TO_DATE('01-11-2017', '%d-%m-%Y');
+select*from sales where region like 'w%';
+
+select*from sales where category like'%no%';
+select count(*) from sales where category='Technology';
+select count(distinct category)from sales;
+select avg(sales) from sales;
+select sum(sales) from sales where state='Texas';
+select min(sales) from sales where category='Technology';
+select max(sales) from sales where category='Technology';
+select*from sales;
+
+select count(orderid),category from sales group by category;
+select sum(sales), region from sales group by region order by sum(sales) desc;
+select count(quantity),subcategory from sales group by subcategory having count(quantity)>12;
+
+select*from sales where sales=(select min(sales)from sales);
+select*from sales where quantity=(select min(quantity)from sales);
+
+
