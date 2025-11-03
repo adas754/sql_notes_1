@@ -1,0 +1,211 @@
+create database student; -- created a database
+show databases; -- I want to see the database
+drop database student; -- i have deleted the database
+create database employee;
+
+show databases;
+
+-- I want to create a database , and my database name is customer
+create database customers10;
+
+use customers10;
+create table cust(
+customer_id int,
+customer_name varchar(25),
+customer_email varchar(100));
+
+select*from cust;
+
+create database doctor1;
+
+use doctor1;
+
+
+use customers10;
+create table cust1(
+customer_id int,
+customer_name varchar(25),
+customer_email varchar(100));
+
+select*from cust101;
+
+insert into cust1(customer_id,customer_name,customer_email) values(123,'a','ad45@'),
+(346,'a','aks465@'),
+('234','p','pr4656@');
+-- student table, stu_id,stu_name,stu_marks, you have to insert to value , after creating a table 
+-- YOU HAVE TO SEE IT
+
+create table student(
+stu_id int,
+stu_name varchar(10),
+stu_marks decimal(10));
+
+insert into student(stu_id,stu_name,stu_marks)values(123,'a',89.8),
+(456,'ks',78.9);
+select*from student;
+
+use doctor1;
+
+create table cust110(
+customer_id int unique,
+customer_name varchar(25) not null,
+customer_email varchar(100));
+
+insert into cust110(customer_id,customer_name,customer_email) values(123,null,'ad45@'),
+(456,null,'aks465@'),
+('234',null,'pr4656@');
+show databases;
+
+
+
+create table student124(
+stu_id int primary key auto_increment,
+name varchar(50) not null,
+age int check(age>18));
+
+insert into student124(name,age) values('aks',19),
+('a',28);
+
+select*from student124;
+delete from student124 where stu_id=2;
+
+select*from ticket;
+
+delete from ticket where ticket_id=4;
+
+
+create table student40(
+sid int primary key,
+stu_name varchar(25) check(stu_name like 'a%'));
+
+insert into student40 (sid,stu_name) values(123,'ad'),(457,'aks');
+
+
+create table ticket(ticket_id int primary key auto_increment, name varchar(25) not null, travel datetime
+default current_timestamp);
+
+insert into ticket(name) values('abc'),('ijk');
+
+select*from ticket; 
+
+
+create table student60(
+stu_id int primary key auto_increment,
+name varchar(50) not null,
+age int default 18);
+
+
+
+create table ticket1(ticket_id int primary key auto_increment ,name varchar(25) not null, 
+travel datetime default current_timestamp);
+
+insert into ticket1(name) values ('abc'),('opo'),('rre'),('eee');
+
+select* from ticket1;
+
+insert into student60(name) values('aks'),
+('a');
+
+drop table ticket1;
+
+
+select*from ticket1;
+
+show databases;
+
+use customers; -- 
+
+-- empid,empname,emp_desig,emp_age
+
+create table emp(
+
+empid int ,
+emp_name varchar(25),
+emp_desig varchar(25),
+emp_age int);
+
+select* from emp;
+
+insert into emp values(101,'a','hr',23),
+(104,'aks','data scientist',37),
+(109,'p','data analyst',27),
+(108,'s','pm',24);
+
+-- update, where my emp_name is a that i will change from a to ad, and age will be 23 to 27
+
+update emp set emp_name='ad', emp_age=27 where empid=101;
+
+-- delete the value where the empid=108
+
+delete from emp where empid=108;
+
+-- i want to update emp_age and emp_desig where emp_id =109 
+-- I want to delete the entire row where emp_age=37
+
+-- 9:18
+update emp set emp_age=29, emp_desig='gen ai trainer' where empid=109;
+delete from emp where emp_age=37;
+-- i want to add one new columns and the column name will be emp_experience
+
+alter table emp add emp_exp int;
+
+select*from emp;
+-- I want to drop emp_exp column
+alter table emp drop column emp_exp;
+
+-- You have to add emp_location as new column
+-- you have to drop the emp_age
+
+alter table emp add emp_location varchar(25);
+alter table emp drop column emp_age;
+
+alter table emp add column emp_gender varchar(10) after emp_name;
+
+-- empid int to varchar
+
+alter table emp modify empid varchar(20);
+ -- try to change the datatype of emp_loaction varchar to int
+ alter table emp modify emp_location int;
+select* from emp;
+
+-- I want to empid to emplo_id
+alter table emp rename column empid to emplo_id;
+
+-- just change emp_desig to emp_designation
+
+alter table emp rename column emp_desig to emp_designation;
+
+-- now i want to change the table name
+
+alter table emp rename to employee;
+
+select*from employee;
+
+-- truncate
+
+truncate table employee;
+
+-- drop will delete whole table from your database
+-- truncate will delete only the values / attribute / row from your data .
+--  it will not delete
+-- any columns
+
+select*from cust;
+
+drop table cust;
+
+use customers10;
+
+select* from cust;
+
+drop table cust;
+
+use doctor1;
+
+select*from ticket;
+
+truncate table ticket;
+-- truncate used to clear the record inside table
+
+-- drop used to drop existing columns from the table
+
