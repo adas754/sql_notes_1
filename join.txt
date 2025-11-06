@@ -1,0 +1,39 @@
+use customers;
+
+select*from users1;
+select*from customers.groups;
+-- cross join operation
+select * from users1 t1 cross join customers.groups t2;
+select*from membership;
+select*from users1;
+select*from membership t1 right join users1 t2 on t1.user_id=t2.user_id;
+select*from membership t1 left join users1 t2 on t1.user_id=t2.user_id;
+select*from membership t1 inner join users1 t2 on t1.user_id=t2.user_id;
+-- how  i want to check duplicate record after performing inner join 
+-- select membership_id,group_id,user_id from membership t1 inner join users1 t2 on t1.user_id=t2.user_id group by 
+-- membership_id,group_id having count(*)>1;
+-- union
+-- is used to combine the result of two or more . the union removes duplicate row between the various select statement
+-- union all but it does not remove duplicate
+-- intersect -- return only the row that appers in both result
+-- except -- a-b it will take only the a part
+-- if b-a it will consider b part  
+-- except operator return only the distinct row that appear in first result set but not in second result set.
+
+
+-- full outer join
+
+select*from membership t1 left join users1 t2 on t1.user_id=t2.user_id 
+union
+select*from membership t1 right join users1 t2 on t1.user_id=t2.user_id;
+
+-- self join
+select*from users1;
+select*from users1 t1 join users1 t2 on t1.user_id=t2.emergency_contact;
+-- 11 
+-- rahul 
+-- nitish rahul 
+
+-- emp id name manager id
+-- find out all employee and their respective manager 
+-- select * from emp e1 join e2 e1.emp_id=e2.manager_id;
