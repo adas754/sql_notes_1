@@ -1,0 +1,50 @@
+-- how to create a database
+create database sqlss;
+-- how to check how many database is there in your system
+show databases;
+-- how to DELETE database
+DROP DATABASE SQLS;
+DROP DATABASE CUSTOMERS;
+create database sqlss1;
+-- utilize a database
+use sqlss1;
+-- how to create table
+create table emplo(
+emp_id int,
+emp_name varchar(30),
+emp_dept varchar(50),
+emp_salary decimal);
+-- how to check table
+select*from emplo;
+-- how to delete table 
+drop table emplo;
+
+-- create student table
+create table stu(
+stu_id int unique,
+stu_name varchar(50),
+stu_subject varchar(78));
+select*from stu;
+-- how to insert a values
+insert into stu(stu_id,stu_name,stu_subject)
+values(1,'a','ds'),
+(2,'b','da');
+
+create table school(
+s_roll int primary key,
+s_class varchar(30),
+s_staff varchar(50),
+s_number int);
+select*from school;
+insert into school (s_roll,s_class,s_staff,s_number)
+values(null,'1a','x',30);
+-- create hospital db
+create table hospital(
+h_name varchar(250),
+p_name varchar(200),
+p_age int check(p_age>35));
+select* from hospital;
+insert into hospital (h_name,p_name,p_age)
+values('xyz','a',null);
+
+
