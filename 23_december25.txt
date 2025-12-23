@@ -54,10 +54,13 @@ add emp_location varchar(25)
 ;
 
 alter table employee drop column emp_exp;
+alter table employee drop column emp_dept,drop 
+column emp_location;
 
 alter table employee modify 
 emp_name varchar(30);
 alter table employee rename to emp_data;
+
 
 
 
