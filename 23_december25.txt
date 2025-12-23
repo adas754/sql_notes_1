@@ -1,0 +1,64 @@
+CREATE TABLE hospital2 (
+    h_name VARCHAR(250),
+    p_name VARCHAR(200),
+    p_age INT NOT NULL CHECK (p_age > 35)
+);
+
+create table student40(
+sid int primary key,
+stu_name varchar(25) 
+check(stu_name like 'a%'));
+
+insert into student40 (sid,stu_name) 
+values(123,'xy'),(457,'yuo');
+
+
+
+
+create table ticket
+(ticket_id int primary key auto_increment, 
+name varchar(25) not null, travel datetime
+default current_timestamp);
+
+insert into ticket(name) values('abc'),
+('ijk');
+
+
+create table emplo(emp_id varchar(30),
+emp_name varchar(50),
+emp_designation varchar(50),
+emp_age int);
+
+
+
+insert into employee
+(emp_id,emp_name,emp_designation,emp_age)
+values(
+1,'a','hr',26),
+(2,'b','ds',34),
+(3,'c','da',32),
+(4,'d','se',35),
+('e5','t','de',45);
+
+
+
+update employee set emp_name='ad',emp_age=24 
+where emp_id=1;
+
+
+delete from employee where emp_id='e5';
+
+
+alter table employee add emp_dept varchar(30), 
+add emp_location varchar(25)
+;
+
+alter table employee drop column emp_exp;
+
+alter table employee modify 
+emp_name varchar(30);
+alter table employee rename to emp_data;
+
+
+
+
