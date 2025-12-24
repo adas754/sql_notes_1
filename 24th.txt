@@ -1,0 +1,28 @@
+select distinct(processor_brand) from 
+smartphones_cleaned_v6;
+
+update smartphones_cleaned_v6 set processor_brand=
+'mediatek' 
+where processor_brand='dimensity';
+
+check the data where the price is greater than 200000
+
+select*from smartphones_cleaned_v6 where price>200000;
+
+select*from smartphones_cleaned_v6  
+where primary_camera_rear>150;
+
+delete from   smartphones_cleaned_v6  
+where primary_camera_rear>150 and 
+brand_name='samsung';
+
+select orderid, orderdate,country,region from sales;
+
+check how many unique category is there
+-- retrive the data where quantity is greater than 10
+check the data where quantity is greater than 5 , category is 
+technology and subcategory is phone.
+i want the data where category is technology or office supplies
+
+
+
