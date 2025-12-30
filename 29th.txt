@@ -1,0 +1,67 @@
+group phone by brand get count, avg price, 
+max rating , avg screen size aND avg battery capacity
+
+
+How many brand is there
+select count(*) brand_name from 
+the avg price
+select avg(price) from ;
+max rating
+select max(rating) from ;
+avg screen size
+
+select avg(screen_size) from 
+avg battery capacity
+
+select brand_name,count(*) as 'no_phones', 
+avg(price) as 'avg_price', max(rating) as max_rating,avg(screen_size) as
+ avg_screen_size, avg(battery_capacity) as avg_battery_capacity
+ from smartphones_cleaned_v6 group by brand_name ;
+
+
+Group smartphones by whether they have an NFC and get the average price and rating
+ select has_nfc, avg(price) as 'avg_price', avg(rating) as 'avg_rating' 
+from  smartphones_cleaned_v6  
+ group by has_nfc order by 'avg_price' limit 5;
+
+
+try to group the data based on has_5g and try to find out maximum rating, 
+maximum battery_capacity
+
+
+
+based on the fast_charging find out avg rating and price
+
+
+sales in different region
+
+
+select region, sum(sales) from sales group by region;
+
+
+based on category check the avg profit
+
+find the avg rating of phones brand which have more than 20 phones
+
+select brand_name,count(*) as 'count' , avg(rating) as
+ 'avg_rating' from smartphones_cleaned_v6 group by brand_name having count>20;
+
+
+Find the top 3 brands with the highest avg ram that has a refresh rate of 
+at least 90 Hz and fast 
+ -- charging available and don't consider brands that have less than 10 phones
+
+select brand_name, avg(ram_capacity) as 'avg_ram'
+ from smartphones_cleaned_v6 where refresh_rate >90 and fast_charging_available=1 
+ group by brand_name having count(*)>10 order by
+ 'avg_ram' desc limit 3;
+
+
+--- i want the subcategory where the max profit > 100
+select subcategory, max(profit) as max_profit from sales group by subcategory 
+having max_profit>100;
+
+costilest brand which has atleast 20 phones
+select brand_name,count(*) as 'count', avg(price) as 'avg_price' from 
+smartphones_cleaned_v6 group by brand_name
+ having count > 20 ;
