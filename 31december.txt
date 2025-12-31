@@ -1,0 +1,57 @@
+select count(*) from movies where score>(select avg(score) 
+ from movies );
+ -- find the highest rated movie of 2000
+
+ find the highest rated movie among ALL 
+-- movies whose number of vote are > 
+-- the dataset avg votes
+select* from movies where 
+score=(select max(score) from movies where votes>
+(select avg(votes) from movies ));
+-- how to create database
+use oct;
+-- how to create collection
+db.createCollection('mongo')
+
+db.mongo.insertOne
+({'name':'ad','cgpa':9.8,'
+city':'BLR'})
+db.mongo.insertMany
+([{'name':'ad','cgpa':8.9},
+{'name':'aks','palce':'blr'},
+{'name':'chentan','cgpa':'7.9'}]
+
+)
+
+
+
+
+db.mongo.insertMany
+([{name:'aks',score:90},
+{'name':'ak',sub:'math'},
+{'name':'ad','cgpa':9.8}])
+db.mongo.find
+({'cgpa':{$gt:8.9},
+'city':'BLR'})
+
+db.mongo.updateOne
+({'name':'ak'},{$set:
+{sub:'ds'}})
+db.mongo.updateMany
+({'cgpa':9.8},
+{$set:{'cgpa':8.2}})
+
+db.mongo.updateOne
+({'name':'ad'},
+{$set:{cgpa:9.9,'city':'hyd'}})
+db.mongo.updateOne(
+
+  { _id: ObjectId('6954f1437350a07408140b51')},
+{$rename:{'name':'names'} }
+
+)
+
+db.mongo.deleteOne({'names':'ad'})
+
+
+db.mongo.deleteMany({'name':'aks'})
