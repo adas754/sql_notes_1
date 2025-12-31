@@ -1,0 +1,83 @@
+select * from users1 t1 cross join customer.
+groups t2;
+
+1 1
+2 2
+3 3 
+4 7 
+8
+11
+
+1 2 3 4 5 6 left table
+1 2 3 4 8 11 right table
+
+1 2 3 4 
+1 2 3 4 5 6 left join 
+1 2 3 4 8 11 right join user_id
+
+
+select*from membership t1 left join 
+users1 t2 on t1.user_id=t2.user_id 
+union
+select*from membership t1 right join 
+users1 t2 on t1.user_id=t2.user_id;
+
+
+select*from membership t1 full outer join 
+users1 t2 on t1.user_id=t2.user_id ;
+
+-- find orderid,name,city by joining users and 
+orders.
+
+
+select t1.order_id,t2.name,t2.city from 
+dm.flip_order t1 join flip_user t2 
+on t1.user_id=t2.user_id;
+
+-- find order id, 
+product category by joining 
+order_details and category
+select t1.order_id,t2.category 
+from flip_order_details t1 join 
+flip_category t2 on t1.category_id=t2.category_id;
+
+-- find all orders placed in pune 
+--find all order under chairs category
+
+select *from flip_order t1 join 
+flip_user t2 on t1.user_id=t2.user_id 
+where t2.city='Pune';
+
+flip_category vartical
+flip_users city
+
+select*from flip_users  t1 cross join flip_category 
+t2 where t1.city='pune' and t2.vertical='chairs';
+
+-- find all profitable order
+
+
+ select*from movies where score=(select max(score) 
+from movies);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select*from membership t1 inner join users1 
+t2 on t1.user_id=t2.user_id;
