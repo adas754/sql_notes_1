@@ -1,0 +1,153 @@
+
+ 
+ -- want to create database 
+ -- datamites database name
+ -- how to create database
+ create database datamites;
+ 
+ 
+ -- how to check how many database is there
+ show databases;
+ 
+ -- inside particular database i want to create table
+ -- use/ utilize the database
+ use student;
+ 
+ -- stu_id,stu_name,stu_sub
+ create table student1( stu_id int,
+ stu_name varchar(30),
+ stu_sub char(20));
+ 
+ 
+ -- i  want to see that table
+ select*from student;
+ 
+ -- how to delete a database
+ drop database datamites;
+ 
+ -- create the student database
+ create database student;
+ 
+use student;
+ 
+ -- insert the value in that table
+ insert into student(stu_id,stu_name,stu_sub)values(1,'a','ds'),
+ (2,'b','da'),
+ (3,'p','bd');
+ -- create table and table_name will be school
+ -- and in that paricular table
+ -- stu_id , stu_name, stu_section
+ 
+ create table school(
+ stu_id int unique,
+ stu_name varchar(25),
+ stu_section varchar(20));
+ 
+ -- want to check table
+ select*from school;
+ insert into school(stu_id,stu_name,stu_section)
+ values(1,'a','b'),
+ (2,'b','c');
+ 
+ -- not null
+ create table college(
+ s_id int not null,
+ s_name varchar(30));
+ 
+ insert into college(s_id,s_name)values(1,'a'),
+ (5,'b');
+ 
+ select*from college;
+ -- primary key -unique+not null
+ 
+ -- create a emp table 
+ -- emp_id primary key
+ -- emp_name 
+ 
+ create table emp(
+ emp_id int primary key,
+ emp_name varchar(20));
+ insert into emp(emp_id,emp_name)values(1,'a'),
+ (9,'ad');
+ 
+ -- how to see table
+ select*from emp;
+ -- check
+ -- hospital , p_name,p_age
+ create table hospital(
+ p_name varchar(30),
+ p_age int check(p_age>18));
+ insert into hospital(p_name,p_age)values('a',30);
+ select*from hospital;
+ 
+ -- default
+ create table ticket(t_id int primary key auto_increment,
+ p_name varchar(30),
+ travel datetime default current_timestamp);
+ 
+ insert into ticket(p_name)values('a'),('ad'),('sn'),('rd');
+ 
+ 
+ 
+ 
+ select*from ticket;
+ 
+ 
+ 
+ 
+ 
+ -- create employee table and add empid,emp_name,emp_designation
+ 
+ -- try to insert 5 values
+ 
+ create table employee(
+ empid int,
+ emp_name varchar(30),
+ emp_designation varchar(30));
+ 
+ insert into employee(empid,emp_name,emp_designation) values(1,'a','ds'),
+ (2,'p','hr'),
+ (3,'aks','da'),(5,'a','ae'),(6,'b','be');
+ 
+ select*from employee;
+ 
+ 
+ create table employee1(emp_id int primary key,
+ emp_name varchar(30),
+ emp_designation varchar(20),
+ emp_age int );
+ 
+ 
+ select*from employee1;
+ 
+ insert into employee1 (emp_id,emp_name,emp_designation,emp_age)values(1,'a','hr',26),
+ 
+ (2,'b','ds',26),
+ (3,'c','da',26),
+ (4,'d','hr',26),
+(5,'a','hr',26);
+ 
+ -- i want to modify the data where emp_id=5 
+ -- i want to change emp_name and emp_designation where the emp_id is 5
+ update employee1 set emp_name='ad',emp_designation='se' where emp_id=5;
+ -- you have to change emp_name and emp_age where emp_id is 4
+ update employee1 set emp_name='sa',emp_age='29' where emp_id=4;
+ -- i want to delete the data where emp_id is 1
+ delete from employee1 where emp_id=1;
+ -- i want to add new columns
+ alter table employee1 add emp_dept varchar(30);
+ -- you have to add emp_dept  value where the emp_id is 5
+ update employee1 set emp_dept='DE' where emp_id=5;
+
+ update employee1 set emp_name='ad', emp_designation='se'where emp_id=5;
+
+ -- how to rename table
+ alter table employee1 rename to emplo;
+ select*from emplo;
+ -- if you want to drop any col
+ alter table emplo drop column emp_dept;
+ -- how to rename column
+ alter table emplo change emp_age empage int;
+
+
+
