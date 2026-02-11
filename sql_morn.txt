@@ -1,0 +1,50 @@
+-- how to create database
+
+create database datamite;
+ 
+ -- how to check the database is there or not
+ show databases;
+ 
+ -- create the another database the database name will be student
+ SHOW DATABASES;
+ 
+ -- how to delete the database 
+ drop database datamite;
+
+ drop database datamite;
+ 
+-- with that same name we can't create a database
+-- we have to drop that database than only we can create with same name
+
+-- how to utilize or use the database
+
+use student;
+
+
+-- employee
+
+
+-- my table name is empl50
+-- your table name is employee
+-- emp_id, emp_name,emp_dept
+create table emplo50(
+emp_id int,
+emp_name varchar(30),
+emp_dept varchar(20));
+
+-- create the student table 
+-- stu_id
+-- stu_name
+-- stu_sub
+-- try to see student table
+
+ -- how we can see table created
+ 
+ select* from emplo50;
+ 
+ -- insert the values inside a table
+ insert into emplo50(emp_id,emp_name,emp_dept) values(
+ 1,'a','ds'),
+ (2,'rd','ai'),
+ (6,'aks','da');
+ 
