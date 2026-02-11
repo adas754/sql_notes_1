@@ -1,0 +1,81 @@
+ -- 11 feb
+ -- trying to change datatype
+ alter table emplo50 modify emp_name varchar(50);
+ select*from emplo50;
+ 
+ truncate table emplo50;
+ 
+ drop table emplo50;
+ 
+ select*from profit;
+ 
+ -- orderid,orderdate,country,region 
+ select orderid,orderdate,country,region from profit;
+ -- i want to find unique category
+ select distinct(category) from profit;
+ -- try to find out the unique subcategory
+ select distinct(subcategory)from profit;
+ 
+ -- aliases
+ 
+ -- change orderid as id
+ 
+ select orderid as id from profit;
+ 
+ -- where clause
+ -- u want to filter record based on the condition
+ -- try to featch data related to technology
+ select*from profit where category='technology';
+ -- try to featch the data where subcategory is phones
+ select*from profit where subcategory='phones';
+ -- try to find out the data where quantity is greater than 10
+ 
+ select*from profit where quantity>10;
+
+ -- try to find out the sales where sales is less than 50
+ select*from profit where sales<50;
+
+-- and 
+
+-- try to find out the record where state is texas and category is technology
+select * from profit where state='texas' and category='technology';
+-- try to find out the data where quantity is greater than 5 , state is texas and region is east
+select*from profit where quantity>5 and state='texas' and region='east';
+-- try to find out the data where quantity is greater than 5 , category is technology
+--  and subcategory is phones
+select * from profit where quantity>5 and category='technology' and subcategory='phones';
+
+-- or 
+-- i want the data where it is related to technology and office supplies
+select*from profit where category='technology' or category ='Office Supplies';
+select distinct(category) from profit;
+
+-- u have to find out the data where the subcategory is phones,paper and art
+select * 
+from profit
+where subcategory = 'phones' or subcategory = 'paper' or subcategory = 'art';
+
+-- not 
+-- u have to find the data where the data is not related to the technology
+select*from profit where not category='technology';
+-- try to find out data where the region is not east
+select*from profit where not region= 'east';
+-- order by
+-- we can use order by to sort the data in from of ascending or descending 
+-- we have to sort the where category is technology i want to sort the
+-- data in ascending order based on quantity 
+select * from profit where category='Technology' order by quantity asc;
+-- try to find out the data where subcategory is phones and sales in desc order
+select *
+from profit
+where subcategory = 'phones'
+order by sales desc;
+-- i want the first 5 data
+-- limit 
+select *
+from profit
+where subcategory = 'phones'
+order by sales desc
+limit 5;
+
+
