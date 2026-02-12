@@ -1,0 +1,85 @@
+-- 12th feb
+
+use student;
+-- any null value is there or not
+select*from profit where category is not null;
+-- in 
+
+-- i want to featch only that record where phones , paper and art will be there
+select*from profit where subcategory in('paper','phones','art');
+
+-- you have to featch the data using in where region is east and west
+select * from profit where region in ('east','west');
+-- between
+
+select* from profit where quantity between 2 and 6;
+-- try to find out the sales in between 50 to 100
+select*from profit where sales between 50 and 100;
+
+-- like
+-- try to find the data related to west region
+ select* from profit where region like 'w%t';
+
+ select* from profit where region like '%t';
+ 
+ -- try to find out the data where category is technology 
+ -- here u have to use only like
+ select * from profit where category like 't%';
+ 
+ select*from profit where category like 't%y';
+-- try to find out the data where subcategory is phones and use _
+
+select * from profit where subcategory like 'p_____';
+select*from profit where subcategory like '_____s';
+select * from profit where subcategory like 'P____s';
+select * from profit where subcategory like 'p%s';
+-- aggregation function
+-- count, min, max, avg, sum
+-- it will return how many value is there
+-- how many uique category is there
+select count(distinct category) from profit;
+-- try to find out how many unique sub category is there
+select count(distinct subcategory) from profit;
+
+-- try to find out how many technology is theree
+select count(*) from profit where category ='technology';
+-- try to find how many data is there regarding phones
+select count(*) as count_of_phone from profit where subcategory='Phones';
+-- avg
+-- find out the avg sales from that data
+select round(avg(sales)) from profit;
+-- plz try to find out the avg profit from the table
+select*from profit;
+-- 0.35
+-- 0
+select avg(profit) from profit;
+select round(avg(profit),3) as avg_profit from profit;
+-- sum 
+
+-- if you are trying find out sum of total sales
+select sum(sales) from profit;
+
+-- try to find out total quantity
+select sum(quantity) as total_qty from profit;
+
+-- find out the total sales for the texas state
+select sum(sales) as total_sales from profit where state = 'texas';
+-- try to find the avg of quantity where the quantity is greater than 3
+
+select round(avg(quantity),3) from profit where quantity >3;
+
+select avg(quantity) from profit where quantity>3;
+
+select avg(quantity) from profit where quantity>3;
+-- try to find out minimum sales where subcategory is phones 
+select min(sales) from profit where subcategory = 'phones';
+-- try find out max profit where technology is there
+select max(profit) from profit where category = 'technology';
+-- group by
+-- used to arrange identical data into groups with the help
+-- of agg function
+-- if i want to find out total sales in different category
+-- i want find out total sales over different region
+select sum(sales), region from profit group by region order by sum(sales) desc;
+-- try to find out the avg profit over different sub category
+select avg(profit),subcategory from profit group by subcategory order by avg(profit) desc;
