@@ -1,0 +1,62 @@
+-- 12 th feb
+-- use / utilize the database
+use student;
+
+create database student;
+-- unique
+-- no duplicate
+create table clg1(
+stu_id int unique ,
+stu_name varchar(30));
+insert into clg1(stu_id,stu_name) values(1,'a'),
+(9,'aks');
+ 
+ select*from clg1;
+ 
+ -- not null 
+ 
+ create table empl_60(
+ emp_id int,
+ emp_salary int not null);
+ 
+ insert into empl_60(emp_id,emp_salary) values(1,69);
+ select*from empl_60;
+ 
+ -- primary key
+ -- unique+not null
+ 
+ create table school50( s_roll int primary key,
+ s_name varchar(30));
+ 
+ insert into school50(s_roll,s_name)values(1,'aks'),
+ (9,'ad');
+ 
+ create table hospital35(
+ p_id int,
+ p_age int check(p_age>18));
+ 
+ insert into hospital35(p_id,p_age) values(1,19);
+ select*from hospital35;
+ 
+ create table stu(
+ s_id int ,
+ s_name varchar(30) check(s_name like 'a%'));
+ 
+ insert into stu(s_id,s_name)values(1,'ad');
+ 
+ -- default
+ create table ticket100( t_id int primary key auto_increment,
+ p_name varchar(30),
+ travel_time datetime default current_timestamp);
+ insert into ticket1001(p_name) values('aks'),
+ ('ad'),('sn');
+ 
+ select*from ticket1001;
+ 
+ create table ticket1001 (
+	t_id int primary key auto_increment,
+    p_name varchar(50),
+    travel_time datetime default current_timestamp
+) auto_increment = 5;
+
+ 
