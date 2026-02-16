@@ -1,0 +1,143 @@
+-- 16th feb
+
+-- check database
+show databases;
+--  utilize / use the particular student database
+use student;
+
+-- create one table 
+-- the table is emp_data
+-- and the columns will be emp_id, emp_name, emp_designation, emp_age
+create table emp_data (
+	emp_id int primary key auto_increment,
+    emp_name varchar(50),
+    emp_designation varchar(30),
+    emp_age int
+);
+
+select*from emp_data;
+
+ -- insert 5 values
+ 
+ -- try to insert the 5 values 
+ 
+ insert into emp_data (emp_name, emp_designation, emp_age) values 
+('ankit', 'da', 20),
+('rohit', 'ds', 22),
+('aman', 'de', 26),
+('nikhil', 'sd', 21),
+('nayan', 'da', 26);
+
+-- use to modify the existing records
+-- i am trying to modify name and age where emp_id is 1
+update emp_data set emp_name='ad',emp_age=27 where emp_id=1;
+-- you have to change emp_designation where the emp_id =4
+update emp_data set emp_designation='se'where emp_id=4;
+
+-- try to change emp_designation and emp_age where the emp_id is 5
+update emp_data set emp_designation='BA' ,  emp_age =30 where emp_id=5;
+
+-- how to delete data based on condition
+
+-- where emp_id is 1 i want to delete the data
+delete from emp_data where emp_id=1;
+
+-- try to delete the data where emp_age is 30
+delete from emp_data where emp_age=30;
+
+-- i want to add the new_col and col_name is emp_exp in my existing data
+alter table emp_data add emp_exp int;
+-- try to add one column and the col_nmae should be emP_salary
+alter table emp_data add emp_sal int;
+-- how to delte the existing column
+alter table emp_data drop column emp_sal;
+-- try to delete emp_exp column
+alter table emp_data drop emp_exp;
+-- how to modify the datatype here instead of varchar(50) i want change varchar(30)
+alter table emp_data modify emp_name varchar(30);
+-- try to change int to varchar where col_name is emp_id
+
+alter table emp_data modify emp_id varchar(30) ;
+-- i want change the column name
+-- instead of emp_age i want to edit employee_age
+alter table emp_data rename column emp_age to employee_age;
+
+-- try to change emp_id to emplpoyee_id
+alter table emp_data rename column emp_id to employee_id;
+
+-- rename table
+alter table emp_data rename to emp_70;
+select * from emp_70;
+-- truncate
+truncate table emp_70;
+
+drop table emp_70;
+
+
+-- using truncate we can delete values from table
+-- using drop we can delete entire table
+
+
+select * from customers;
+
+-- i want to see only orderid,orderdate,city,region
+
+select orderid,orderdate,city,region from customers;
+
+-- try to find out sales and profit column
+select sales, profit from customers;
+-- how to featch unique record
+
+-- distinct
+-- how many unique category is there
+select distinct(category) from customers;
+
+-- how many unique subcategory is there
+
+select distinct subcategory from customers;
+
+-- how many unique region is there
+select distinct region from customers;
+
+-- aliases
+select orderid as id from customers;
+
+select orderdate as date from customers;
+-- where
+-- try to find out data where category is technology
+select*from customers where category='Technology';
+
+-- try to featch the data where subcategory is Art
+select * from customers
+where subcategory = "art";
+
+-- try to find out data where region is east
+-- try to find out the data where quantity is greater than 10
+-- try to find out data where sales is less than 50
+select *
+from customers
+where region='East';
+
+
+select *
+from customers
+where quantity>10;
+select *
+from customers
+where sales<50;
+
+-- and 
+-- i am trying to featch the data where state is texas and category is technology
+select * from customers where state='Texas' and category='Technology';
+
+-- try to find out the data where quantity is greater than 5 , 
+-- category is technology and subcategory is
+-- phones
+
+select * from customers where quantity>5 and category='Technology'and subcategory='phones';
+
+-- try to find out data where category is technology or office supplies
+select*from customers where category='Technology' or category='office supplies';
+-- try to find out the data where subcategory is phones , art and paper
+select * from customers 
+where subcategory = 'phones' or subcategory= 'art'or subcategory= 'paper';
