@@ -1,0 +1,53 @@
+-- 16th eve
+
+use student;
+
+select*from ph;
+-- group the ph based on brand and get the count 
+select count(*) from ph;
+select brand_name, count(*) from ph group by brand_name;
+select brand_name, count(brand_name) from ph group by brand_name;
+-- please try sort in descending order
+select brand_name, count(brand_name) as count_of_phone from ph 
+group by brand_name order by count_of_phone desc limit 10;
+-- if u want top 5 
+select brand_name, count(brand_name) as count_of_phone from ph 
+group by brand_name order by count_of_phone desc limit 5,1;
+--  group the ph based on brand and find out the avg rating
+
+select brand_name, avg(rating) from ph group by brand_name;
+-- try to group the data based on  brand_name and find out the maximum price
+select brand_name, max(price) from ph group by brand_name;
+-- try to find out minimum battery capacity for each brand
+select brand_name, min(battery_capacity) from ph group by brand_name;
+-- group ph by whether they have nfc and get the avg price and rating
+select*from ph;
+select has_nfc , avg(price) as avg_price, avg(rating) as avg_rating from ph group by has_nfc;
+
+-- group ph by the extended memory avialable and get the avg price
+select extended_memory_available, avg(price) as avg_price from ph group by extended_memory_available;
+
+-- which brand makes the smaLLEST SCREEN PH
+
+
+SELECT brand_name, min(screen_size)
+FROM ph group by brand_name
+ORDER BY min(screen_size) limit 1;
+select brand_name, screen_size 
+from ph 
+where screen_size= (select min(screen_size) from ph);
+
+-- find top 5 most costly ph brand
+
+
+
+select brand_name, max(price) from ph group by brand_name order by max(price) limit 5;
+
+
+select brand_name, max(price) as price from ph group by brand_name order by max(price) desc limit 5;
+select*from profit;
+-- find the total sales over different region sales is greater 5000
+select region,sum(sales)  from profit group by region having sum(sales)>5000;
+-- find out the quantity and category over different category where category is greater than 10
+select category , sum(quantity ) as total_qty from profit group by category having sum(quantity) >10;
+select category,sum(quantity) from profit group by category having sum(quantity)>10;
