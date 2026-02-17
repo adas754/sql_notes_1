@@ -1,0 +1,172 @@
+- 17th feb morn
+-- how to utilize that
+use student;
+select*from customers;
+-- find out region is east and west
+select * from customers
+where region='east' or region='west';
+
+-- not 
+-- find entire record except technology
+select * from customers where not category='Technology';
+-- try to find out the data where phones is not there
+
+select *
+from customers
+where not subcategory='Phones';
+-- try to find out the data except central
+select * from customers where not region='Central';
+
+-- order by
+-- try to find out data where category is Furniture and order by sales on ascending
+-- order
+
+select * from customers where category='Furniture' order by sales;
+-- try to find out data related to technology and profit in desc order
+select*
+from customers
+where category='technology'
+order by profit desc;
+-- null/ is null
+-- it is used to check any null values exists or not
+-- in that category col is there any null
+select*from customers where category is null;
+select*from customers where category is not null;
+-- check in region any data is null or not
+-- how to check in region dta is not null
+select * from customers
+where region is null;
+
+
+select *
+from customers
+where region is not null;
+
+-- limit
+-- return specified no of records
+
+-- 5 highest sales where subcategory is phones
+select * from customers
+where subcategory='phones'
+order by sales desc
+limit 5;
+
+-- try find out data where technology is there and find out 5 minimum profit
+select * from customers
+where category = "technology"
+order by profit 
+limit 5;
+-- in
+-- try to find out subcategory related to phones , art
+select*from customers where subcategory in ('phones','art');
+-- try to find out the data where region is east and west
+-- try to findout data where subcategory is phones,paper,art
+select *
+from customers
+where region in ('East', 'West');
+
+select *
+from customers
+where subcategory in ('Phones', 'Paper', 'Art');
+
+-- between
+--  record within certain range
+
+-- quantity in between 2 and 4
+select*from customers where quantity between 2 and 5 order by quantity;
+-- try to find out data where profit in betwwen 7 to 10
+select * from customers
+where profit between 7 and 10 order by profit ;
+--  like
+-- agg function
+-- 10 min , 8:15
+-- % - > it represent zero , one or multiple char
+-- _ -> one or single char
+-- a% - > it will start with a
+-- p% -> start with p
+-- %s -> end with s
+-- %a- > end with a
+-- %or%-> in middle there should be or
+-- %lo% -- > start and end with anything middle lo
+-- a%b -- > starts with a and end with b
+-- p%n --> start p , end n
+-- a__-> app
+-- p__-> 2 char
+-- __s-> ass
+-- try to find out the data using like where region is west
+select*from customers where region like 'w%t';
+select*from customers where region like 'w%';
+select*from customers where region like 'w___';
+select*from customers where region like '%es%';
+
+-- try to find out data using like where category is technology
+
+
+select *
+from customers
+where category like 'T%';
+
+
+select *
+from customers
+where category like '%Y';
+
+select *
+from customers
+where category like 'T%Y';
+
+
+select *
+from customers
+where category like '%no%';
+
+
+
+
+-- try to ----------------------- where subcategory is phones
+select * from customers where subcategory like '%on%';
+select * from customers where subcategory like 'P%s';
+select * from customers where subcategory like '%one_';
+select * from customers where subcategory like '%on%';
+select * from customers where subcategory like 'P%';
+select * from customers where subcategory like 'P%s';
+--   ---------------------------- where category is furtuniture
+
+
+select * from customers where category like '%F%ure';
+select *from customers where category like 'f%e';
+-- aggregAation func
+-- min , max, sum , avg,count
+select min(sales) from customers;
+-- u have to find minimum sales where category is technology
+select min(sales) from customers where category ='technology';
+
+-- ----------------- min profit where subcategory is paper
+-- max quantity where region is east
+
+select region,max(quantity) from customers
+where region="east";
+
+
+select subcategory,max(profit) from customers where subcategory='paper';
+-- find out the total sales
+select sum(sales) from  customers;
+-- find out total sales where phones is there
+select sum(sales) from customers
+where subcategory="phones";
+
+-- find out total sales where region is east
+
+Select sum(sales) from customers where region ='east';
+
+-- avg 
+-- try to find out avg quantity where region is west
+select avg(quantity)
+from customers
+where region='West';
+-- count unique category
+select count(distinct category) from customers;
+-- how many unique region is there
+select count(distinct region) from customers;
+
+
