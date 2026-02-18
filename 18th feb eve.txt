@@ -1,0 +1,63 @@
+-- 18th feb
+use student;
+
+select*from users1;
+-- 11 8
+select*from student.groups;
+-- cross join
+select*from users1 t1 cross join student.groups t2;
+select*from membership;
+-- right join
+-- membership users 1
+-- `1 2 3 4 8 11 users1
+-- 1 2 3 4 5 6 membership
+-- left table membership
+-- right table users1
+select*from membership t1 right join users1 t2 on t1.user_id=t2.user_id;
+-- left join
+select * from membership t1 left join users1 t2 on t1.user_id=t2.user_id;
+-- inner join
+select * from membership t1
+inner join
+users1 t2 
+on t1.user_id = t2.user_id;
+-- full outer join 
+-- left join union right join
+select *
+from users1 t1 
+left join membership t2 
+on t1.user_id = t2.user_id
+union 
+select *
+from users1 t1 
+right join membership t2 
+on t1.user_id = t2.user_id;
+
+
+select t1.user_id as from_user, t2.user_id as from_member
+from users1 t1 
+right join membership t2 
+on t1.user_id > t2.user_id;
+
+-- self join
+-- user id 1 nitish 11 
+-- 11  user id of rahul
+-- user id 2 ankit 1
+-- 1 is the user id of nitish
+
+select*from users1 t1 join users1 t2 on t1.user_id=t2.emergency_contact;
+-- find all emp and their respective manager
+-- select* from emp e1 join e2 on e1.emp_id=e2.manager_id;
+
+select* from users1;
+
+select *
+from users1 t1
+join users1 t2
+on t1.user_id  = t2.emergency_contact where t1.user_id = 11;
+
+
+select *
+from users1 t1
+join users1 t2
+on t1.user_id  = t2.emergency_contact where t2.user_id = 11;
