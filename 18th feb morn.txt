@@ -1,0 +1,108 @@
+-- 18 feb
+
+-- group by ,having , subquery
+-- group by
+-- it is used to arrange identical data into groups with the help of agg function
+-- count
+-- min
+-- max
+-- avg
+-- sum
+use student;
+select* from smart;
+-- count no of phones based on brand name
+select brand_name,count(*) from smart group by brand_name;
+select brand_name from smart;
+-- if u want top 5 
+select brand_name,count(*) from smart group by brand_name order by count(*) desc limit 10;
+-- vivo 3 rd largest
+-- 4 th largest
+select brand_name,count(*) from smart group by brand_name order by count(*) desc limit 2,1;
+-- 6th largest
+select brand_name,count(*) from smart group by brand_name order by count(*) desc limit 5,1;
+-- 2nd largeat and 3rd largest at a time 
+-- samsung and vivo
+select brand_name,count(*) from smart group by brand_name order by count(*) desc limit 1,2;
+-- 4,5,6
+-- realme ,oppo ,motorola 
+select brand_name,count(*) from smart group by brand_name order by count(*) desc limit 3,3;
+-- group the brand based on avg rating
+select brand_name,avg(rating) from smart group by brand_name;
+-- find out the maximum price based on brand_name
+select brand_name,max(price) from smart group by brand_name order by max(price) desc limit 1;
+
+-- try to find out minimum battery capacity for each brand
+
+select brand_name ,min(battery_capacity)from smart group by brand_name order by min(battery_capacity);
+-- 2,4,6
+-- 'vertu','huawei','samsung'
+
+
+select brand_name ,min(battery_capacity)from smart group by brand_name order by min(battery_capacity);
+
+
+select min(battery_capacity) , brand_name from smart
+group by brand_name order by min(battery_capacity) limit 1 ;
+
+-- try to group the data based on has_nfc and get the avg price and rating
+select has_nfc, 
+avg(price) as avg_price, avg(rating) as avg_rating from smart group by has_nfc order by avg_rating desc;
+
+-- group the data based on extended memory avilable and get the avg price
+
+Select extended_memory_available,avg(price) from smart group by extended_memory_available;
+-- which brand makes the smallest screen phne
+select*from smart;
+select brand_name, min(screen_size) as min_screen
+from smart
+group by brand_name
+order by  min(screen_size)
+limit 1;
+
+-- find top 5 most costly phone
+select brand_name, max(price) from smart
+group by brand_name
+order by max(price) desc
+limit 5;
+-- find  out the total sales over region
+-- from customers
+select sum(sales)as total_sales ,region from customers
+group by region;
+
+-- try to find out where sales is greater than 5000
+-- having is the where condition in group by
+select region, sum(sales) as sales
+from customers
+group by region
+having sum(sales) > 5000;
+-- try to find out avg quantity based on category where quantity is greater than 3
+select category, avg(quantity) as avg_qty
+from customers
+group by category
+having avg_qty > 3;
+
+
+
+
+
+
+select brand_name, min_cap
+from (select brand_name, min(battery_capacity) as min_cap,
+row_number() over (order by min(battery_capacity)) as b_cap
+from smart
+group by brand_name
+) as sub1
+where b_cap in (2,4,6);
+
+-- subquery
+-- minimum sales
+select * from customers where sales=(select  min(sales) from customers);
+-- to filter data  based on another query
+-- find out employee who earn more than avg salary
+-- select avg(salary) from table
+-- employee
+-- id name dept_id salary
+-- dept
+-- id dept name
+-- find out employee who earn more than avg salary
+
