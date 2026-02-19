@@ -1,0 +1,129 @@
+-- 19th feb
+use student;
+select*from users1;
+-- 1 2 3 4 8 11
+select*from student.groups;
+ -- 1 2 3 7
+ select*from users1 t1 cross join student.groups t2;
+ 
+ select*from membership;
+ -- 1 2 3 4 5 6
+ select*from users1;
+-- 1 2 3 4 8 11
+ select*from membership t1 right join users1 t2 on t1.user_id=t2.user_id;
+ -- left join
+ select * 
+from membership as m
+left join  student.users1 as u
+on m.user_id=u.user_id;
+-- inner join
+
+select * 
+from membership as m
+join  student.users1 as u
+on m.user_id=u.user_id;
+
+select * 
+from membership t1 
+inner join users1 t2
+on t1.user_id=t2.user_id;
+
+-- full outer join
+-- left join union right join
+
+select * from membership t1 
+left join users1 t2
+on t1.user_id = t2.user_id
+union
+select * from membership t1 
+right join users1 t2
+on t1.user_id = t2.user_id;
+
+-- self join
+
+ select*from users1;
+ -- 1 11
+ -- nithish rahul
+ -- ANKIT nitish
+ -- neha nitish
+ -- radhika neha
+ -- abhinav rahul
+ -- rahul abhi
+ 
+ select*from users1 t1 join users1 t2 on t1.user_id=t2.emergency_contact;
+ 
+ -- find out all emp and their respective manager
+ -- emp_id , manager_id
+ -- emp table emp_id ,manager_id , emp_name , m_name ,job_role
+ -- select e1.emp_name, e2.emp_manager
+-- from employee e1
+-- join employee e2
+-- on e1.emp_id = e2.manager_id;
+select*from flip_user;
+select*from flip_order;
+-- find orderid,name,city
+select t2.order_id,t1.name,t1.city
+from flip_user as t1
+join flip_order t2
+on t1.user_id= t2.user_id;
+
+select* from flip_order_details;
+select* from flip_category;
+
+-- find order_id,category
+select x.order_id, y.category
+from flip_order_details x
+join flip_category y
+on x.category_id = y.category_id;
+
+
+-- find all orders placed in pune( flip_order, flip_user)
+
+select * from flip_order t1 join flip_user t2 on t1.user_id=t2.user_id
+where t2.city='Pune';
+-- find all order under the chair category
+
+-- orderid, vertical
+select order_id,vertical from flip_order_details t1
+join flip_category t2
+ON t1.category_id=t2.category_id
+where vertical='chairs';
+
+
+-- subquery
+select* from movies;
+-- find out highest score
+select max(score) from movies;
+-- i want to see the entire data where the score is 9.3
+select * from movies where score=9.3;
+-- i dont want first the max score and based on that the entire details of movie
+-- when the score will change again u have to manually write it
+-- to avoid that i will use subquery
+
+select* from movies where score=(select max(score) from movies);
+
+
+-- find the movie with heighest profit
+
+-- profit?
+-- budget , gross
+-- profit = gross - budget
+
+-- movie with max profit
+select * from movies where (gross-budget)=(select max(gross-budget) from movies);
+-- find the height rated movie on 2000
+select*from movies where year=2000 and score=(select max(score) from movies where year=2000);
+
+
+SELECT *
+FROM movies
+WHERE score = (
+    SELECT MAX(score)
+    FROM movies
+    WHERE year = 2000
+)
+AND year = 2000;
+
+-- find how many movies have rating>the avg of all movie rating
+select count(*) as movie_count from movies
+where score > (select avg(score) from movies);
