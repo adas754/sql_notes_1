@@ -1,0 +1,143 @@
+use feb
+switched to db feb
+db.createCollection('mongo')
+{ ok: 1 }
+db.mongo.insertOne({'name':'ad','cgpa':8.9,'city':'hyd'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69987ad523bccf070e2d5cf0')
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987ad523bccf070e2d5cf0'),
+  name: 'ad',
+  cgpa: 8.9,
+  city: 'hyd'
+}
+db.mongo.insertMany([{'name':'ad','score':98},{'name':'ak','sub':'ds'},{'city':'hyd','score':98}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69987c7423bccf070e2d5cf1'),
+    '1': ObjectId('69987c7423bccf070e2d5cf2'),
+    '2': ObjectId('69987c7423bccf070e2d5cf3')
+  }
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987ad523bccf070e2d5cf0'),
+  name: 'ad',
+  cgpa: 8.9,
+  city: 'hyd'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf1'),
+  name: 'ad',
+  score: 98
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf2'),
+  name: 'ak',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf3'),
+  city: 'hyd',
+  score: 98
+}
+db.mongo.updateOne({'sub':'ds'},{$set:{'sub':'ai'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987ad523bccf070e2d5cf0'),
+  name: 'ad',
+  cgpa: 8.9,
+  city: 'hyd'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf1'),
+  name: 'ad',
+  score: 98
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf2'),
+  name: 'ak',
+  sub: 'ai'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf3'),
+  city: 'hyd',
+  score: 98
+}
+db.mongo.updateMany({'score':98},{$set:{'score':99}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987ad523bccf070e2d5cf0'),
+  name: 'ad',
+  cgpa: 8.9,
+  city: 'hyd'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf1'),
+  name: 'ad',
+  score: 99
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf2'),
+  name: 'ak',
+  sub: 'ai'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf3'),
+  city: 'hyd',
+  score: 99
+}
+db.mongo.deleteOne({'name':'ak'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987ad523bccf070e2d5cf0'),
+  name: 'ad',
+  cgpa: 8.9,
+  city: 'hyd'
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf1'),
+  name: 'ad',
+  score: 99
+}
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf3'),
+  city: 'hyd',
+  score: 99
+}
+db.mongo.deleteMany({'name':'ad'})
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+db.mongo.find()
+{
+  _id: ObjectId('69987c7423bccf070e2d5cf3'),
+  city: 'hyd',
+  score: 99
+}
+
+
+
