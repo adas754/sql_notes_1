@@ -1,0 +1,40 @@
+-- utilize database
+use student;
+select*from movies;
+select max(score) from movies;
+-- i want the whole data where score is 9.3
+
+select * from movies where score = 9.3;
+-- subquery
+select*from movies where score=(select max(score) from movies);
+-- find the movie with heighst profit
+-- gross - budget
+SELECT * FROM movies WHERE (gross - budget) = (SELECT MAX(gross - budget) FROM movies);
+-- how many movies have a rating> the avg of all movie rating
+
+select*from movies where score>(select avg(score) from movies);
+
+SELECT COUNT(*) AS TOTAL_MOVIES FROM movies WHERE score > (SELECT AVG(score)FROM movies);
+
+
+-- find out height rated movie of 2000
+select* from movies where year=2000 and score=(select max(score) from
+movies where year=2000);
+
+use anan;
+switched to db anan
+use ann
+switched to db ann
+db.createCollection('ds')
+{ ok: 1 }
+db.ds.insertOne({'emp_d':1,'name':'ad','ph':899})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69973fd07ee7691c8bf348d8')
+}
+db.ds.find()
+
+
+
+db.ds.insertMany([{'name':'ad','salary':5,'ph':56},{'name':'ak','salary':78,'ph':90}])
+
