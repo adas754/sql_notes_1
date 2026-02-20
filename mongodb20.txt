@@ -1,0 +1,640 @@
+use arpita
+switched to db arpita
+db.createCollection('emp')
+{ ok: 1 }
+db.emp.insertOne({'name':'v','age':24,'ph':78})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6997c05b986c08dd8861500e')
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+db.emp.insertOne({'stu_id':1,stu_name:'ad','stu_sub':'maths'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6997c30c986c08dd8861500f')
+}
+db.emp.insertMany([{'name':'jkk','ph':90,'mail':'vhh@'},{'name':'hj','ph':89,'mail':'hj@'},{'name':'gh','ph':98,mail:'gh@'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6997c586986c08dd88615010'),
+    '1': ObjectId('6997c586986c08dd88615011'),
+    '2': ObjectId('6997c586986c08dd88615012')
+  }
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'vhh@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+db.emp.updateOne({'mail':'vhh@'},{$set:{'mail':'jkk@'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+         
+db.emp.insertMany([{'name':"u",'score':90},{'name':'o','sub':'ds'},{'name':'ad','score':89}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6997cc07986c08dd88615013'),
+    '1': ObjectId('6997cc07986c08dd88615014'),
+    '2': ObjectId('6997cc07986c08dd88615015')
+  }
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615013'),
+  name: 'u',
+  score: 90
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+db.emp.insertMany([{'name':"u",'score':90},{'name':'o','sub':'ds'},{'name':'ad','score':90}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6997ccbb986c08dd88615016'),
+    '1': ObjectId('6997ccbb986c08dd88615017'),
+    '2': ObjectId('6997ccbb986c08dd88615018')
+  }
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615013'),
+  name: 'u',
+  score: 90
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615016'),
+  name: 'u',
+  score: 90
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 90
+}
+db.emp.updateMany({'score':90},{$set:{'score':93}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615013'),
+  name: 'u',
+  score: 93
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615016'),
+  name: 'u',
+  score: 93
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+db.emp.updateOne({name:'u'},{$set:{'score':98}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615013'),
+  name: 'u',
+  score: 98
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615016'),
+  name: 'u',
+  score: 93
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+db.emp.updateMany({name:'u'},{$set:{'score':98}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615013'),
+  name: 'u',
+  score: 98
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615016'),
+  name: 'u',
+  score: 98
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+db.emp.deleteOne({'name':'u'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615016'),
+  name: 'u',
+  score: 98
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+db.emp.deletMany({'name':'u'})
+TypeError: db.emp.deletMany is not a function
+db.emp.deleteMany({'name':'u'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+db.emp.deleteMany({'name':'u'})
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.emp.find()
+{
+  _id: ObjectId('6997c05b986c08dd8861500e'),
+  name: 'v',
+  age: 24,
+  ph: 78
+}
+{
+  _id: ObjectId('6997c30c986c08dd8861500f'),
+  stu_id: 1,
+  stu_name: 'ad',
+  stu_sub: 'maths'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615010'),
+  name: 'jkk',
+  ph: 90,
+  mail: 'jkk@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615011'),
+  name: 'hj',
+  ph: 89,
+  mail: 'hj@'
+}
+{
+  _id: ObjectId('6997c586986c08dd88615012'),
+  name: 'gh',
+  ph: 98,
+  mail: 'gh@'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615014'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997cc07986c08dd88615015'),
+  name: 'ad',
+  score: 89
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615017'),
+  name: 'o',
+  sub: 'ds'
+}
+{
+  _id: ObjectId('6997ccbb986c08dd88615018'),
+  name: 'ad',
+  score: 93
+}
+
