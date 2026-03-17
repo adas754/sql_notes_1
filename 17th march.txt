@@ -1,0 +1,102 @@
+- use / utilize the db
+use student;
+create table student12(
+stu_id varchar(30) not null,
+stu_name varchar(50),
+stu_score int);
+-- 07:17:31	insert into student12 (stu_id,stu_name,stu_score) values(2,'ad',90), (null,'ak',98)	Error Code: 1048. Column 'stu_id' cannot be null	0.016 sec
+
+select* from student13;
+
+
+-- how to add/ insert the values into table
+insert into student12 (stu_id,stu_name,stu_score) values(2,'ad',90),
+(34,'ak',98),
+('','aks',89);
+
+create table student14(
+stu_id varchar(30) unique,
+stu_name varchar(50),
+stu_score int);
+insert into student14 (stu_id,stu_name,stu_score) values(2,'ad',90),
+(8,'ak',98),
+(null,'ad',90);
+-- Error Code: 1062. Duplicate entry '2' for key 'student13.stu_id'
+-- primary key -> unique+ not null
+create table student17(
+stu_id varchar(30) primary key,
+stu_name varchar(50),
+stu_score int);
+insert into student17(stu_id,stu_name,stu_score) values(2,'ad',90),
+(8,'ak',98),
+(80,'ad',90);
+
+select*from student89;
+
+create table student89(
+stu_id varchar(30) ,
+stu_name varchar(50),
+stu_age int check(stu_age >18));
+
+insert into student89(stu_id,stu_name,stu_age) values(2,'ad',19),
+(8,'ak',19),
+(80,'ad',19);
+-- Error Code: 3819. Check constraint 'student89_chk_1' is violated.
+create table ticket
+(t_id int primary key auto_increment,
+t_name varchar(30),
+travel datetime default current_timestamp);
+
+insert into ticket(t_name) values('aks'),
+('ad'),
+('ib');
+
+select* from ticket;
+
+create table student80(
+stu_id int,
+stu_name varchar(30),
+stu_section varchar(30) default 'c');
+
+insert into student870 (stu_name) values('ad'),
+('aks'),('ak');
+
+select*from student870;
+
+
+
+create table student870(
+stu_id int primary key auto_increment,
+stu_name varchar(30),
+stu_section varchar(30) default 'c'
+) auto_increment=1000;
+
+
+create table student70(
+stu_id int default 1,
+stu_name varchar(30),
+stu_section varchar(30) default 'c'
+);
+
+insert into student70 (stu_name) values('ad'),
+('aks'),('ak');
+
+select*from student70;
+create table emplo75(
+emp_name varchar(50),
+emp_age int,
+emp_id varchar(30),
+emp_designation varchar(30));
+
+insert into emplo75(emp_name,emp_age,emp_id,emp_designation) values('ad',24,1,'ds'),
+('aks',25,2,'da'),
+('ak',27,3,'bde'),
+('sn',29,5,'da'),
+('ik',45,9,'pe');
+
+select*from emplo75;
+-- i want to update the value where emp_age is 45
+-- 45-> 35
+update emplo75 set emp_age=35 where emp_id =9;
+-- try to change designation bde to pm
+update emplo75 set emp_designation = 'Product Manager' where emp_id = 3;
