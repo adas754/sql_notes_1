@@ -1,0 +1,50 @@
+-- I want to check how many database is there inside my sql
+show databases;
+-- how to create a new database
+create database sr;
+-- create database , and the database name is student
+create database student;
+
+-- we cant create a database with the same name
+-- we have to delete the database
+-- how to delete the database
+drop database student;
+-- how to check the db
+
+show databases;
+
+-- how to utilize/ use the db
+use student;
+-- how to create db 
+create database ad;
+
+-- inside student i will create the table
+
+
+-- how to delete the db
+
+
+-- table name also student
+-- stu_id varchar
+-- stu_name varchar
+-- stu_score int
+create table student(
+stu_id varchar(30),
+stu_name varchar(50),
+stu_score int);
+
+select*from student;
+
+-- create emplo table
+-- emp_id int
+-- emp_name 
+create table emplo(
+emp_id int,
+emp_name varchar(30));
+
+select* from emplo;
+
+
+
+
+drop database ad;
