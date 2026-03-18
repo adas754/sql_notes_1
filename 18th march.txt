@@ -1,0 +1,125 @@
+-- use / utilize the db
+use student;
+
+-- update emp_age 35 to 30 and as a same time update emp_id 9 to 6
+update emplo75 set emp_age=30, emp_id=6 where emp_id=9;
+-- now i want one new column
+-- column name will be salary
+alter table emplo75 add salary int;
+-- i want to add multiple column
+alter table emplo75 add location varchar(20), add exp int;
+-- i want to drop the column
+alter table emplo75 drop column salary;
+-- if i want to delete multiple columns
+alter table emplo75 drop column location, drop column exp;
+-- i want to change data type
+alter table emplo75 modify emp_id int;
+-- i want to rename the table 
+alter table emplo75 rename to emp95;
+
+select*from emp95;
+
+truncate table emp95;
+drop table emp95;
+
+
+-- difference between truncate and drop
+select*from sale;
+select*from course;
+-- orderid,orderate,sales
+-- want the specific columns
+
+select orderid,orderdate,sales from sale;
+
+-- try to find out profit ,city from table
+
+
+select profit,city from sale;
+
+-- how to check unique category
+select distinct(category) from sale;
+
+-- how to check unique region
+select distinct(region) from sale;
+-- aliases
+select*from sale;
+select orderid as id from sale;
+-- orderdate to date
+select orderdate as date from sale;
+
+-- where
+-- i want to filter the record from data
+-- I want only technology related data
+
+select* from sale where category='Technology';
+-- try to find out the data where subcategory is art
+select * from sale where subcategory = 'Art';
+-- try find out the data where quantity is greater than 10 
+select * from sale
+where quantity > 10;
+
+-- try to find the data where sale is less than 10
+
+select * from sale where sales<10;
+
+-- where category is technology as well as state is texas
+select * from sale where category='Technology' and state='Texas';
+-- try to find out the data where subcategory is phones , quantity is greater than 5 and category is
+-- technology'
+select*from sale where subcategory='Phones' and quantity>5 and category='Technology';
+
+-- or
+-- category is Technology as well as Furniture
+select * from sale where category="Technology" or category="Furniture";
+-- try to find out the data where art , papers and phones is avialable
+select * from sale
+where subcategory = 'Art' or subcategory = 'Phones' or subcategory = 'Paper';
+
+-- not
+-- i dont data regarding technology
+select* from sale where  not category= 'Technology';
+
+-- find out the date except north region
+select* from sale where not region='North';
+-- now try to find out data except phones
+select*from sale where not subcategory='Phones';
+-- order by
+-- i am trying to feach the data in asc or desc order
+-- trying to find out the data where category is technology 
+-- sales in asc order
+select* from sale where category='Technology' order by sales asc;
+-- desc
+
+select* from sale where category='Technology' order by sales desc;
+
+-- try to find out the data where region  is east and profit in desc order
+select * from sale where region = 'East' order by profit desc;
+-- now i want to check in my category any null value is there or not
+select* from sale where  category is null;
+select* from sale where category is not null;
+-- limit
+-- when i want specific record that time we can go for limit
+select* from sale where category='Technology' order by sales limit 5;
+
+-- try to find two data in desc where subcategory is art and profit is there
+select* from sale where subcategory ='art' order by profit desc limit 2;
+
+-- in command
+-- if i want the data regarding art, phones , paper
+select* from sale;
+select * from sale where subcategory in('art','phones','paper');
+-- try to find out data where region is west and east
+
+select distinct(region) from sale;
+select *
+from sale
+where region in ('West', 'East');
+
+-- between
+-- i want quantity in between 5 to 10
+select * from sale where quantity between 5 and 10;
+
+-- discount in between 0 t0 0.5
+select* from sale where discount between 0 and 0.5;
+
+
