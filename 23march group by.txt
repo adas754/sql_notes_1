@@ -1,0 +1,92 @@
+use student;
+select* from sale;
+
+-- like
+-- if i want to see the region is west using like
+select*from sale where region like 'w%';
+select*from sale where region like '%es%';
+select*from sale where region like 'w%t';
+select*from sale where region like 'w___';
+-- try to find out category is technology using like
+Select * from sale
+where category like '%y';
+select * from sale where category like "t%y";
+select * from sale where category like "%no%";
+select * from sale where category like "t%";
+-- aggrigation function
+-- count
+-- min
+-- max
+-- avg
+-- sum
+-- how many record is there related to technology
+select count(*) from sale where category like '%no%';
+-- try to find out how many east is there
+select count(*) from sale where region like 'e%t';
+-- how many unique subcategory is there
+select count(distinct subcategory) from sale;
+-- try to find out how many unique region is there
+select count( distinct region) from sale;
+-- sum
+--  try to find out the total sales
+select sum(sales) from sale;
+select round(sum(sales)) from sale;
+-- try to find out the total sales where the region is east
+select sum(sales) from sale where region like 'e%t';
+-- try to find out total sales where phones is there 
+use student;
+select round(sum(sales),2) from sale where subcategory like '%on%';
+-- avg 
+-- try to find avg profit  where paper is there
+select avg(profit) from sale where subcategory like 'p%r';
+
+-- minimum profit where phone is there 
+-- maximum sales where region is west
+select min(profit) from sale where subcategory='phones';
+select max(sales) from sale where region='west';
+-- like
+-- aggregation
+-- group by 
+-- create a group based on categorical data
+-- we have to apply aggrigation function
+-- find sum of sale on different region
+select sum(sales), region from sale group by region;
+-- find out avg profit based on category
+select category, avg(profit) from sale group by category;
+-- having 
+-- where , when we will use the group by that time 
+-- to filter out a specific value we have to use having
+
+-- find out avg profit based on category where avg profit is more than 10
+select category, avg(profit) from sale group by category having avg(profit)>10;
+-- try to find out the sum(quantity)>5 based on region
+select region, sum(quantity) from sale group by region having sum(quantity)>150;
+select*from ph;
+--  how many unique brand is there
+select count(distinct brand_name) from ph;
+-- count the no of phone for each and every brand
+-- based on brand_name
+select brand_name, count(*) as no_of_phone from ph group by brand_name;
+-- find out the avg rating for each and every phone
+select brand_name,avg(rating) from ph group by brand_name order by avg(rating) desc limit 1,1;
+select brand_name,avg(rating) from ph group by brand_name order by avg(rating) desc limit 5;
+
+select brand_name,avg(rating) from ph group by brand_name order by avg(rating) desc limit 1,2;
+select brand_name,avg(rating) from ph group by brand_name order by avg(rating) desc limit 2,2;
+
+select * from ph;
+-- try to find out avg battery_capacity is greater than 5000 for each and every phone
+select brand_name, avg(battery_capacity) from ph group by brand_name having avg(battery_capacity)>5000 
+order by avg(battery_capacity) desc
+limit 5; 
+
+select model, avg(battery_capacity) from ph group by model having avg(battery_capacity)>5000 
+order by avg(battery_capacity) desc
+limit 5; 
+
+-- based on that 5g try to find out price
+select has_5g, sum(price) from ph group by has_5g;
+-- based on brand _ name find out minimum ram capacity
+select min(ram_capacity), brand_name from ph
+group by brand_name order by min(ram_capacity) limit 1;
+
