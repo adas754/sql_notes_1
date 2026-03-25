@@ -1,0 +1,78 @@
+customer_id order_id
+1             7
+1              8
+1             9
+1
+1             10
+
+
+
+
+2      6
+5     9
+7     0
+9     2
+
+use student;
+use school1;
+
+select*from membership;
+-- 1 2 3 4 5 6
+select*from users1;
+-- 1 2 3 4 8 11 
+select*from membership t1 inner join users1 t2 on t1.user_id=t2.user_id;
+-- use left join 
+select*from membership t1 left join users1 t2 on t1.user_id=t2.user_id;
+-- inner join
+
+select t1.membership_id, t1.group_id, t1.user_id, 
+t2.name,t2.age, t2.emergency_contact from membership t1 
+left join users1 t2 on t1.user_id = t2.user_id;
+-- right join
+
+select*from membership t1 right join users1 t2 on t1.user_id=t2.user_id;
+
+select t1.membership_id, t1.group_id, t2.user_id, t2.name, t2.age,t2.emergency_contact 
+from membership t1
+right join users1 t2
+on t1.user_id=t2.user_id;
+-- full outer join
+-- left join
+-- union
+-- right join
+select 
+*
+from membership m
+left join users1 u
+on m.user_id = u.user_id
+
+UNION
+
+select 
+*
+from membership m
+right join users1 u
+on m.user_id = u.user_id;
+
+
+select t1.membership_id, t1.group_id, t1.user_id, 
+t2.name,t2.age, t2.emergency_contact from membership t1 
+left join users1 t2 on t1.user_id = t2.user_id
+union
+select t1.membership_id, t1.group_id, t2.user_id, t2.name, t2.age,t2.emergency_contact 
+from membership t1
+right join users1 t2
+on t1.user_id=t2.user_id;
+-- 8:31
+-- cross join
+select* from 
+school1.groups;
+select*from users1 t1 cross join school1.groups t2;
+
+select*from users1;
+select*from gp;
+-- self join
+select* from users1;
+
+select * from users1 t1 join users1 t2 on t1.user_id=t2.emergency_contact; 
+
