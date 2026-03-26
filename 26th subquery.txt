@@ -1,0 +1,44 @@
+-- Identify owner types where the total selling price of cars exceeds 1,000,000.
+use kju;
+select*from cars;
+select owner,sum(selling_price) as total_price from cars group by owner having 
+total_price > 1000000;
+
+-- Find out brands that have more than one car listed in the dataset.
+
+select brand,count(*) as total_car from cars group by brand having total_car>1;
+
+-- get the minimum kilometers driven for cars in each fuel category.
+select fuel,min(km_driven) as min_km from cars group by fuel order by min_km;
+-- join
+select* from flip_order_details;
+select* from flip_category;
+-- try to find out where only chairs is avialable with order_id
+select t1.order_id , t2.vertical from flip_order_details t1 join flip_category t2 on t1.category_id
+=t2.category_id where t2.vertical='Chairs';
+-- subquery
+select*from movies;
+-- how to find out highest score for the movie
+select max(score) from movies;
+select*from movies where score=9.3;
+select*from movies
+where score=(select max(score) from movies);
+-- find the movie with highest profit 
+select*from movies;
+-- select* from movies where(gross-budget) as max_profit=(select max (max_profit) from movies);
+
+-- find how many movies have rating> the avg of all movies rating
+select count(*) from movies where score>(select avg(score) from movies);
+-- find height rated movie of 2000
+select* from movies where year=2000 and score=(select max(score) from movies where
+year=2000);
+
+-- try to find out order id and category
+select t1.order_id,t2.category from flip_order_details t1 join flip_category t2
+on t1.category_id=t2.category_id;
+select*from flip_order;
+select * from flip_user;
+-- Extract the data where every order ordered from pune and the order id
+select t1.order_id,t2.city from flip_order t1 join flip_user t2 on t1.user_id=t2.user_id
+ where t2.city='Pune';
+ 
