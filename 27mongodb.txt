@@ -1,0 +1,291 @@
+use dms
+switched to db dms
+db.createCollection('mongo')
+{ ok: 1 }
+db.mongo.insertOne({'name':'ad','cgpa':9.8,city:'blr'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69c5e85d8a060e3b9daa7f7c')
+}
+db.mongo.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Standalone', 'Sharded', 'LoadBalanced' ],
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e85d8a060e3b9daa7f7c'),
+  name: 'ad',
+  cgpa: 9.8,
+  city: 'blr'
+}
+db.mongo.insertOne({'emp_id':6,emp_name:'ad','emp_salary':90})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69c5e9558a060e3b9daa7f7d')
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e85d8a060e3b9daa7f7c'),
+  name: 'ad',
+  cgpa: 9.8,
+  city: 'blr'
+}
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+db.mongo.insertMany([{'name':'ak',score:90},{name:'aks',score:9.8},{name:'ad',sub:'ds'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69c5eb678a060e3b9daa7f7e'),
+    '1': ObjectId('69c5eb678a060e3b9daa7f7f'),
+    '2': ObjectId('69c5eb678a060e3b9daa7f80')
+  }
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e85d8a060e3b9daa7f7c'),
+  name: 'ad',
+  cgpa: 9.8,
+  city: 'blr'
+}
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f80'),
+  name: 'ad',
+  sub: 'ds'
+}
+db.mongo.updateOne({'name':'ad'},{$set:{sub:'ai'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e85d8a060e3b9daa7f7c'),
+  name: 'ad',
+  cgpa: 9.8,
+  city: 'blr',
+  sub: 'ai'
+}
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f80'),
+  name: 'ad',
+  sub: 'ds'
+}
+db.mongo.updateMany({'name':'ad'},{$set:{sub:'ai'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e85d8a060e3b9daa7f7c'),
+  name: 'ad',
+  cgpa: 9.8,
+  city: 'blr',
+  sub: 'ai'
+}
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f80'),
+  name: 'ad',
+  sub: 'ai'
+}
+db.mongo.deleteOne
+[Function: deleteOne] AsyncFunction {
+  apiVersions: [ 1, Infinity ],
+  returnsPromise: true,
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Standalone', 'Sharded', 'LoadBalanced' ],
+  returnType: { type: 'unknown', attributes: {} },
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.mongo.deleteOne({'name':'ad'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f80'),
+  name: 'ad',
+  sub: 'ai'
+}
+db.mongo.deleteMany({'name':'ad'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5e9558a060e3b9daa7f7d'),
+  emp_id: 6,
+  emp_name: 'ad',
+  emp_salary: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+db.mongo.deleteOne({emp_salary:90})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks',
+  score: 9.8
+}
+db.mongo.updateOne({'name':'aks',$unset:{score:9.8}})
+
+db.mongo.updateOne({"name":"aks"},{$unset:{score:90}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks'
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak',
+  score: 90
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks'
+}
+db.mongo.updateOne({"name":"ak"},{$unset:{score:90}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mongo.find()
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7e'),
+  name: 'ak'
+}
+{
+  _id: ObjectId('69c5eb678a060e3b9daa7f7f'),
+  name: 'aks'
+}
+dms
+Selection deleted
+
+
