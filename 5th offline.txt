@@ -1,0 +1,117 @@
+use sql4;
+create table dmb1(
+stu_id int primary key,
+stu_score int);
+select* from dmb1;
+insert into dmb1(stu_id,stu_score) values(1,67),
+(2,89),
+(78,90);
+
+create table hospital(
+p_id int,
+p_age int check(p_age>18));
+insert into hospital(p_id,p_age) values(1,27);
+-- a%
+-- u will create one table
+-- p_name
+-- p_id
+-- here u will mention every name p_name will start with p
+create table hospital4(
+p_name varchar(30) check(p_name like 'p%'),
+p_id int);
+insert into hospital4 (p_name,p_id) values('piyush',12);
+select* from hospital4;
+create table ticket3(
+t_id int primary key auto_increment ,
+t_name varchar(60),
+travel_time datetime default current_timestamp)
+auto_increment=9;
+
+insert into ticket3 (t_name) values('ad');
+select* from ticket3;
+
+create table tour(
+t_name varchar(30),
+t_place varchar(30) default 'blr');
+
+insert into tour(t_name) values('ad');
+-- 12:00 
+
+
+select* from tour;
+
+use sql4;
+select* from emplo;
+update emplo set emp_age=27 where emp_id=1;
+-- update the emp_des and emp_age where emp_id is 5
+update emplo set emp_des='pd'
+, emp_age=25 where emp_id=3;
+-- change the emp_name,emp_des,emp_age where the emp_id is 5
+update emplo set emp_name='s',emp_des='da',emp_age=34 where
+emp_id=5;
+-- delete the emp_age where the emp_age is 38
+delete from emplo where emp_age=38;
+select*from emplo;
+-- delete the emp_des where emp_des is 'da'
+delete from emplo where emp_des='da';
+-- try to add emp_salary
+alter table emplo add emp_salary int;
+-- add emp_salary 5000 where emp_id is 1
+update emplo set emp_salary=5000 where emp_id=1;
+-- add 7000 where emp_des is 'pd'
+update emplo set emp_salary=7000 where emp_des='pd';
+-- emp_salary will 1000
+update emplo set emp_salary=1000;
+-- add emp_exp,emp_location
+alter table emplo add emp_exp int, add emp_location varchar(30);
+select* from emplo;
+-- drop emp_exp column
+alter table emplo drop column emp_exp;
+-- drop emp_location as well as emp_salary
+alter table emplo drop column emp_salary,drop emp_location;
+-- i want to change the data type where emp_id int 
+-- to varchar(20)
+alter table emplo modify emp_id varchar(20);
+-- where the emp_name is varchar(30) change that varchar(10)
+
+alter table emplo modify emp_name varchar(10);
+select* from emplo;
+-- i want to rename it 
+-- where emp_des was there i want to change emp_des to
+-- designation
+alter table emplo rename column emp_des to designation;
+-- table was emplo
+-- emplo to emp
+alter table emplo rename to emp;
+select*from emp;
+select* from sale;
+-- orderid, city, sales
+select orderid, city, sales from sale;
+-- unique category
+select distinct(category) from sale;
+-- try to find how many unique region is there
+select distinct(region) from sale;
+select region as rn from sale;
+select distinct(region) as drn from sale;
+-- where 
+-- i am trying to extract the data where category is technology
+select* from sale where category='Technology';
+-- try to find out the data where region is east
+select* from sale where region = 'east';
+-- try to find out the data where quantity is greater than 	10
+select* from sale where quantity>10;
+-- find out the data where sales less than 500
+select * from sale where sales<500;
+-- try to extract the data where region is west as well as category
+-- is technology
+select * from sale where region='west' and category='technology';
+-- quantity > 5
+-- category is technology
+-- region is east
+select* from sale where quantity>5 and category='technology' and
+region='east';
+select * from sale where category='technology' or category=
+'Office Supplies';
+-- try to found the region is east and south
+select* from sale where region ='east' or region='south';
+
