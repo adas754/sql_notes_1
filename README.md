@@ -7,3 +7,4 @@
 # day 6 - https://github.com/adas754/sql_notes_1/blob/main/31december.txt
 # sql_ online - https://github.com/adas754/sql_notes_1/blob/main/sql_10_feb_on.txt
 # SQL OFFLINE - https://github.com/adas754/sql_notes_1/blob/main/4TH%20OFFLINE%20SQL.txt
+# https://github.com/adas754/sql_notes_1/blob/main/5th%20offline.txt
