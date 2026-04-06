@@ -1,0 +1,146 @@
+ CREATE TABLE Courses (
+    id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    duration VARCHAR(20)
+);
+
+CREATE TABLE Students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    course_id INT,
+    FOREIGN KEY (course_id) 
+REFERENCES Courses(id)
+);
+
+INSERT INTO Courses (id, 
+course_name, duration) VALUES
+(101, 'Math', '3 months'),
+(102, 'Science', '4 months'),
+(103, 'English', '2 months'),
+(104, 'History', '3 months');
+
+INSERT INTO Students (id, name,
+ age, course_id) VALUES
+(1, 'Asha', 20, 101),
+(2, 'Ravi', 22, 102),
+(3, 'Priya', 21, 103),
+(4, 'Karan', 23, 101),
+(5, 'Neha', 20, NULL);
+select* from students;
+ select* from courses;
+ -- Retrieve student names 
+along with their course names.
+
+ SELECT s.name, c.course_name
+FROM Students s
+INNER JOIN Courses c ON 
+s.course_id = c.id;
+ 
+ -- Display all students 
+including those without courses.
+ SELECT s.name, c.course_name
+FROM Students s
+LEFT JOIN Courses c ON 
+s.course_id = c.id;
+
+ -- Show all courses and 
+enrolled students.
+ 
+ SELECT s.name, c.course_name
+FROM Students s
+RIGHT JOIN Courses c ON s.course_id 
+= c.id;
+
+-- Find students not 
+enrolled in any course.
+SELECT s.name
+FROM Students s
+LEFT JOIN Courses c ON 
+s.course_id = c.id
+WHERE c.id IS NULL;
+
+-- Find courses with no students enrolled.
+SELECT c.course_name
+FROM Courses c
+LEFT JOIN Students s ON s.course_id = c.id
+WHERE s.id IS NULL;
+
+-- Display student names with course duration.
+SELECT s.name, c.duration
+FROM Students s
+JOIN Courses c ON s.course_id = c.id;
+
+-- Count number of students in each course.
+SELECT c.course_name, COUNT(s.id) AS total_students
+FROM Courses c
+LEFT JOIN Students s ON s.course_id = c.id
+GROUP BY c.course_name;
+
+-- List students enrolled in "Math".
+SELECT s.name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+WHERE c.course_name = 'Math';
+-- Show all combinations of students and courses.
+SELECT s.name, c.course_name
+FROM Students s
+CROSS JOIN Courses c;
+
+-- Get students in courses longer than 3 months.
+SELECT s.name, c.course_name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+WHERE c.duration = '4 months';
+
+-- Display students not enrolled in "English".
+SELECT s.name, c.course_name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+WHERE c.course_name != 'English';
+-- Find courses taken by students aged 20.
+SELECT c.course_name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+WHERE s.age = 20;
+
+-- Display student IDs and course IDs.
+SELECT s.id AS student_id, c.id AS course_id
+FROM Students s
+JOIN Courses c ON s.course_id = c.id;
+
+-- Retrieve students without course_id.
+SELECT *
+FROM Students
+WHERE course_id IS NULL;
+-- Find courses with more than one student.
+SELECT c.course_name, COUNT(*) AS total
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+GROUP BY c.course_name
+HAVING COUNT(*) > 1;
+-- List students sorted by course name.
+SELECT s.name, c.course_name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+ORDER BY c.course_name;
+
+
+-- Show all courses with number of students.
+
+SELECT c.course_name, COUNT(s.id) AS total
+FROM Courses c
+LEFT JOIN Students s ON s.course_id = c.id
+GROUP BY c.course_name;
+
+
+-- Find students older than 21 with course names.
+SELECT s.name, c.course_name
+FROM Students s
+JOIN Courses c ON s.course_id = c.id
+WHERE s.age > 21;
+-- Count courses per student.
+SELECT s.name, COUNT(c.id) AS total_courses
+FROM Students s
+LEFT JOIN Courses c ON s.course_id = c.id
+GROUP BY s.name;
