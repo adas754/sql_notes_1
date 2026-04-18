@@ -1,0 +1,310 @@
+create database code;
+
+create database code;
+use code;
+select* from ph;
+
+extract the data 
+where processor_brand is not
+'snapdragon' 
+
+
+select* from ph 
+where not 
+processor_brand='snapdragon';
+
+select * from ph 
+where not brand_name=
+'oneplus';
+
+-- i want the data where 
+brand_name is samsung and i 
+want the price in asc manner
+
+select * from ph
+where brand_name='samsung'
+order by price;
+-- i want the rating in desc
+order where brand_name 
+is apple
+select* from ph where 
+brand_name='apple'
+order by rating desc;
+select* from ph 
+where brand_name is null;
+
+
+select* from ph where 
+brand_name='apple'
+order by rating desc limit 5;
+
+
+select* from ph where 
+brand_name='apple'
+order by price desc 
+limit 3,1;
+
+-- brand_name is 
+  apple,samsung
+   ,oneplus
+
+select* from ph where 
+brand_name in
+('apple','oneplus',
+'samsung');
+
+-- rating in between 85 to 90
+select* from ph where 
+rating between
+85 and 90;
+
+try to find out the price
+in between 7000 to 10000
+
+
+select* from ph where 
+brand_name in
+('apple','oneplus',
+'samsung') and 
+price between
+7000 and 10000;
+
+
+
+select* from ph where 
+brand_name in
+('apple','oneplus',
+'samsung') and 
+price between
+35000 and 100000;
+
+
+%p -> ends with p
+s% - start with s
+%yt% - > python
+( middle should yt)
+g%b- start with g ends with b
+
+m% -> madhumita
+%a
+% mi%
+m%a
+
+using like if i want to
+extract android
+
+select * from ph
+where os like 'a%';
+select * from ph
+where os like '%d';
+select * from ph
+where os like 'a%d';
+select * from ph
+where os like '%ro%';
+
+total how my os there
+
+select count(os) from ph;
+
+
+select count(*)from 
+ph where os='android';
+
+-- how many unique brand_name is there
+select (count(distinct brand_name)) from ph;
+
+select count(distinct brand_name) from ph;
+
+
+-- check how many unique os there 
+
+
+
+-- avg rating where brand_name is apple
+
+
+
+select avg(rating) from ph where brand_name=
+'apple';
+
+
+-- try to find the avg price
+-- where os='android'
+
+extract the total price
+
+select sum(price) from ph;
+
+
+try to find out the total price where os ='
+ios'
+
+
+find out minimum battery_capacity
+
+find out max ram_capacity where brand_name
+is oneplus
+
+
+
+we have to create the group 
+
+how we will create the group based
+on categorical data
+
+-- we will apply agg func
+
+
+
+
+count the no of phone for
+ each and every brand
+
+select count(*) as no_of_ph,
+ brand_name from ph
+group by brand_name;
+
+select 
+ brand_name,max(*) as no_of_ph from ph
+group by brand_name order by no_of_ph desc 
+limit 5;
+
+select 
+ brand_name,max(price) as max_p from ph
+group by brand_name order by max_p desc 
+limit 5;
+
+try to find out avg battery_capacity 
+is greater than 5000 
+for each and every phone
+
+select brand_name, avg(battery_capacity)
+from ph group by brand_name having 
+avg(battery_capacity)>5000;
+
+
+
+
+-- based on that 5g try to find out price
+select has_5g,sum(price)
+from ph group by has_5g;
+
+based on brand_name find out 
+
+minimum battery_capacity
+
+
+select brand_name,min(battery_capacity)
+from ph group by brand_name;
+
+
+1. Write a query to 
+calculate the total selling price 
+grouped by fuel type.
+select fuel,sum(selling_price)
+from cars group by fuel;
+2. Write a query to find 
+the number of cars available 
+for each owner category.
+select owner,count(*) as no_of_cars from
+cars group by owner;
+3.Write a query to 
+determine the highest selling price 
+for each brand.
+select brand,max(selling_price) as max_price
+from cars group by brand order 
+by max_price desc
+limit 1;
+
+Find out brands that 
+have more than 
+one car listed in the dataset.
+
+select brand,count(*) as no_of_car
+from cars group by brand having no_of_car>1;
+
+
+select brand,count(*) as no_of_car
+from cars group by brand 
+having no_of_car>1 order by no_of_car;
+
+
+
+get the minimum 
+kilometers driven 
+for cars in each fuel category.
+select fuel, min(km_driven) from
+cars group by fuel;
+
+-- try to find out the avg selling price
+greater than 10000 for each & every owner
+
+select owner, avg(selling_price) as avg_price
+from cars group by owner having 
+avg_price>10000;
+
+cust_id   cust_id
+5          1
+7          2
+1          10
+2
+
+
+1 1
+2 2
+3 3
+4 4
+
+
+
+
+ select* from code.groups;
+ select*from membership;
+ select* from code.groups a join membership
+b on a.group_id=b.group_id;
+
+
+select* from code.groups a 
+left join membership
+b on a.group_id=b.group_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
