@@ -1,0 +1,58 @@
+-- How many database is there how to check
+show databases;
+-- how to create a db
+create database school;
+-- how to delete the db
+drop database school;
+
+-- how to utilize the db
+use school;
+-- create one table 
+-- the table name is course
+-- c_id int
+-- c_name varchar(30)
+create table course78(
+c_id int not null,
+c_name varchar(30));
+insert into course78(c_id,c_name) values(0,'ak');
+select*from course78;
+create table course780(
+c_id int unique,
+c_name varchar(30));
+
+insert into course780(c_id,c_name) values(1,'ak'),
+(3,'aks');
+
+-- primary key
+-- unique + not null
+create table course7891(
+c_id int primary key,
+score int check(score>=60),
+c_name varchar(30));
+insert into course7891(c_id,score,c_name) values(5,60,'ak');
+create table course7892(
+c_id int primary key auto_increment,
+score int check(score>=60),
+c_name varchar(30));
+insert into course7892(score,c_name) values(60,'ak'),
+(78,'ad');
+select*from course7892;
+create table course78923(
+c_id int primary 
+key auto_increment,
+score int check(score>=60),
+c_name varchar(30))
+auto_increment=5;
+insert into course78923(score,c_name) values(60,'ak'),
+(78,'ad');
+select*from course78923;
+
+create table ticket67(
+t_id int primary key auto_increment,
+t_name varchar(30),
+p_age int default 60,
+booking_time datetime default current_timestamp);
+insert into ticket67(t_name) values('ad'),
+('aks'),
+('ak');
+select*from ticket67;
