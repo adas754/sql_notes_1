@@ -1,0 +1,55 @@
+use dm;
+-- create the table give name emplo89
+-- emp_id varchar
+-- emp_name varchar
+-- emp_designation varchar
+-- emp_age int
+
+create table emplo89(
+emp_id varchar(30),
+emp_name varchar(30),
+emp_des varchar(20),
+emp_age int);
+insert into emplo89(emp_id,emp_name,emp_des
+,emp_age) values('e001','ad','hr',23),
+('e2300','ak','ds',25),
+('e569','aks','da',34),
+('e003','ads','bde',34);
+update emplo89 set emp_name='adm' 
+where emp_id='e003';
+-- change emp_des hr to 'se'
+update emplo89 set emp_des='se' 
+where emp_id='e001';
+-- update emp_age , emp_name where 
+emp_id is 
+'e569'
+update emplo89 set emp_name='gsd',emp_age
+=39 where emp_id='e569';
+delete from emplo89 where emp_id='e569';
+select*from emplo89;
+-- you have to delete the row 
+where emp_name=
+'adm'
+delete from emplo89 where emp_name='adm';
+-- update
+-- delete
+-- alter
+-- modify
+alter table emplo89 add emp_exp int;
+-- u have to update emp_exp = 3 
+where emp_id='e2300'
+update emplo89 set emp_exp=3 where  emp_id='e2300';
+alter table emplo89 add emp_exp int;
+alter table emplo89 add emp_exp int;
+alter table emplo89 drop column emp_id , drop column 
+emp_name;
+
+alter table emplo890 rename column emp_des
+to emp_designation;
+alter table emplo890 rename to emp;
+select*from emp;
+
+
+
+
+
