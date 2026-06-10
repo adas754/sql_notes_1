@@ -9,3 +9,4 @@
 # SQL OFFLINE - https://github.com/adas754/sql_notes_1/blob/main/4TH%20OFFLINE%20SQL.txt
 # https://github.com/adas754/sql_notes_1/blob/main/5th%20offline.txt
 # mar 9th june - https://github.com/adas754/sql_notes_1/blob/main/9th%20offline.txt
+# mar 10 th morn - https://github.com/adas754/sql_notes_1/blob/main/10th%20morn%20mar.txt
