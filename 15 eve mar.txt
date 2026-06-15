@@ -1,0 +1,207 @@
+-- try to extract the data where 
+-- subcategory
+-- paper
+-- phones
+-- Art
+
+select*from sales where subcategory
+in('paper','phones','art');
+
+-- try to find out the data
+-- where region is
+-- west and east
+select*from sales where region 
+in('east','west');
+
+-- try to find out the data
+-- where segment
+-- is consumer and corporate
+
+select*from sales
+where segment in("consumer",'corporate');
+
+between
+-- quantity 
+-- 3 to 5
+select*from sales where quantity between
+3 and 5;
+
+-- try to find out sales in bet n
+-- 10 to 30
+-- where category is technology
+select*from sales where 
+category='technology' and
+sales between 10 and 30;
+-- try to find out the data
+-- where region is east
+-- like
+select*from sales where region 
+like 'e%';
+select*from sales where region 
+like 'e%t';
+select*from sales where region 
+like '%as%';
+select*from sales where region 
+like 'e__t';
+select*from sales where region 
+like '_as_';
+-- try to find out the data
+-- where category is technology
+-- like
+
+select*from sales where category
+like 't%';
+select*from sales where category
+like '%y';
+select*from sales where category
+like 't%y';
+select*from sales where category
+like '%no%';
+-- count
+-- how many times unique category 
+-- is there
+select count(distinct category) from
+sales;
+
+-- how many distinct 
+-- subcategory is there
+select count(distinct subcategory)
+from sales;
+
+-- try to count the number 
+-- where region is west
+select count(*) from sales where region
+like 'W%';
+
+-- try to find out how many times 
+-- texas is there
+
+select count(*) from sales
+where state like 't%s';
+
+-- sum
+-- total sales
+select sum(sales) from sales;
+select round(sum(sales),2) from sales;
+-- try to extract the total discount
+-- where subcategory is phones
+select sum(discount) from sales
+where subcategory like '%on%';
+
+select round(sum(discount),2) from sales
+where subcategory like '%on%';
+-- try to find out avg quantity
+-- where segment is corporate
+
+select avg(quantity) from sales
+where segment like 'c%e';
+
+-- try to find out the minimum profit
+-- where art is there min
+-- try to find out maximum discount
+-- where phones is there max
+select min(profit) from sales where
+subcategory like 'a%t';
+---------------------------
+select max(discount)from sales where
+subcategory like 'p%s';
+
+-- 2nd maximum sales
+select * from sales order by sales desc 
+limit 1,1;
+
+group by
+-- region
+-- east
+-- west
+-- central
+-- south
+-- for each and every region we want
+-- total sales
+select region,sum(sales) from sales 
+group by region;
+
+-- based on category find out avg profit
+select category,avg(profit) from sales
+group by category;
+
+-- avg(sales), min(discount) and max
+-- (quantity) based on segment
+select segment,avg(sales), min(discount) 
+,max(quantity) from sales group by segment;
+
+-- try to find out sales based on
+-- region 
+-- where the sales is greater than 20
+select region,sum(sales) from sales
+group by region having sum(sales)>20;
+
+select brand,avg(selling_price) as avg_sell from cars
+group by brand;
+
+
+select fuel,sum(selling_price)
+ from cars group by
+fuel;
+
+Find the number of cars available
+for each owner category.
+select owner,count(*) as no_of_car from
+cars group by owner;
+Write a query to get the minimum 
+kilometers driven for cars in each 
+fuel 
+select fuel,min(km_driven) from cars
+group by fuel;
+
+Determine the highest 
+selling price for each brand.
+
+select brand,max(selling_price) from
+cars group by brand order 
+by brand desc limit 1;
+
+List brands whose 
+average selling price 
+is greater than 500,000.
+
+select brand ,
+ avg(selling_price) as avg_sell
+from cars group by brand having 
+avg_sell>500000;
+Try to find out fuel 
+types that have more than 
+50 cars listed.
+select fuel ,count(*) as no_of_cars
+from cars group by 
+fuel having no_of_cars>50;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+east
+
+
+
+
+
+
+
+
+
