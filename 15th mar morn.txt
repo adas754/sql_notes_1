@@ -1,0 +1,189 @@
+try to find out the region which one starts with e
+select*from sales where region like
+'E%';
+try to extract the east region related data
+
+select*from sales where region like
+'E%';
+
+-- select*from sales where region like '%t';
+select*from sales where region like 'E%t';
+
+select*from sales where region like 'E__t';
+
+select*from sales where region like '%as%';
+
+-- try to find out the data using like where subcategory 
+is paper
+
+-- select* from sales where subcategory like 'p%';
+
+select* from sales where subcategory like '%r';
+
+select* from sales where subcategory like 'p%r';
+
+-- select* from sales where subcategory like '%ap%';
+
+
+select* from sales where subcategory like 'p___r';
+
+-- count
+how many unique category is there
+select count(distinct category)from sales;
+
+-- how many unique subcategory is there
+
+select count(distinct subcategory)from sales;
+
+try to find out the count where category is technology
+select count(*) from sales where category like '%no%';
+
+try to find out the count where region is south
+
+select count(*) from sales where region like 's___h';
+
+sum
+-- try to find out the total sales
+where category is technology
+
+select 
+round(sum(sales),2) from sales where category
+='technology';
+-- try to extract total profit where region is east
+
+select round(sum(profit),3) from sales where 
+region like 'e%t';
+
+avg
+-- find out avg quantity where segment is consumer
+select avg(quantity) from sales where segment
+like %ons%;
+
+-- try to find out minimum sales where region is central
+-- try to find out max discount where state =' texas'
+select min(sales) from sales where 
+region like 'c%';
+select max(discount),state from sales
+ where state like 't%s';
+-- u want to check in category is there any null value
+select * from sales where category is null;
+select * from sales where category is not null;
+
+limit
+
+-- sales in asc order
+
+select * from sales order by sales;
+
+-- top 5 sales 
+select * from sales order by sales desc limit 5;
+-- 2nd largest sales
+3083 0
+1706 1
+1113 2
+1097 3
+1044 4
+-- 3rd largest sales
+select * from sales order by sales desc limit 2,1;
+select * from sales order by sales desc limit 3,2;
+
+select * from sales order by sales desc limit 1 offset 1;
+-- find out 5th largest profit where category 
+is technology
+
+select* from sales where category='technology'
+order by profit desc limit 4,1;
+-- try to find out maximum quantity where region is east
+select* from sales where region like 'e%t' order
+by quantity desc limit 1;
+
+-- try to find out 2nd and 3rd lowest discount where
+-- subcategory is phones
+
+select * from sales where subcategory like 'ph%' order by
+discount limit 1,2;
+
+-- i want to extract the data where subcategory is
+-- phones 
+-- paper
+-- art
+select*from sales where subcategory 
+in ('phones','paper','art');
+-- 10:40
+-- quantity in between 2 to 5
+select*from sales where quantity between 2 and 5;
+-- try to find out sales where region is central 
+and sales in between 10 to 50
+select*from sales where region like 'c%' and sales
+between 10 and 50;
+
+agg func
+count
+min
+max
+avg
+sum
+-- try to find out sum sales based on the region
+
+selct region, sum(sales) from sales group by region;
+-- try to find out total sales , avg profit ,
+maximum discount based on category
+
+select category ,sum(sales), avg(profit),max(discount)
+from sales group by category;
+
+-- based on subcategory try to find out total sales 
+-- and the total sales is greater than 10
+select subcategory,sum(sales) from sales group by
+subcategory having sum(sales)>100;
+-- avg quantity based on region 
+where avg quantity >3
+select region,avg(quantity) from sales group by
+region having avg(quantity)>3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
