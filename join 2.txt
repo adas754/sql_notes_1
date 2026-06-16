@@ -1,0 +1,47 @@
+users1.csv
+membership.csv
+groups.csv
+select* from g;
+
+
+-- rename the file name
+select*from dm.groups;
+
+select t2.user_id,t1.membership_id,
+    t1.group_id,
+    t2.name,
+    t2.emergency_contact,
+    t2.age
+from membership t1
+right join users1 t2
+on t1.user_id = t2.user_id;
+
+select
+    t2.user_id,
+    count(*) AS cnt
+from membership t1
+right join users1 t2
+ON t1.user_id = t2.user_id
+group by t2.user_id
+having COUNT(*) > 1;
+
+
+select distinct (t2.user_id),
+       t2.name,
+       t2.emergency_contact,
+       t2.age
+from membership t1
+right join users1 t2
+on t1.user_id = t2.user_id;
+
+
+
+
+
+
+select* from
+ users1 t1 right join membership 
+t2 on t1.user_id=t2.user_id;
+
+
+
