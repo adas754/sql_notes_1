@@ -12,3 +12,4 @@
 # mar 10 th morn - https://github.com/adas754/sql_notes_1/blob/main/10th%20morn%20mar.txt
 # mar sql day 5 - https://github.com/adas754/sql_notes_1/blob/main/15th%20mar%20morn.txt
 # mar sql day 5 eve - https://github.com/adas754/sql_notes_1/blob/main/15%20eve%20mar.txt
+# car question answer - https://github.com/adas754/sql_notes_1/blob/main/car%20question%20solved.txt
