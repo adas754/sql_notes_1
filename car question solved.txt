@@ -1,0 +1,49 @@
+-- 1.Find the average selling price of cars for each brand.
+select brand,round(avg(selling_price),2) 
+as avg_sell from cars group by brand;
+-- 2.Calculate the total selling price grouped by fuel type.
+select fuel,sum(selling_price) as total_price from cars
+group by fuel;
+-- 3.Find the number of cars available for each 
+-- owner category.
+select owner,count(*) from cars group by owner;
+-- 4.Write a query to get the minimum kilometers driven 
+for cars in each 
+fuel 
+select fuel,min(km_driven) from cars group by fuel;
+-- 5.Determine the highest selling price for each brand.
+select brand,max(selling_price) as highest from cars group by brand
+order by highest desc limit 1;
+-- 6.List brands whose average selling price is 
+-- greater than 500,000.
+select brand,avg(selling_price) as avg_price from cars
+group by brand having avg_price>500000;
+-- 7.Try to find out fuel types that have more 
+-- than 50 cars listed.
+select fuel,count(*) as no_of_car from cars group by fuel
+having no_of_car>50;
+-- 8.Identify owner types where the total selling 
+-- price of cars exceeds 
+-- 1,000,000.
+select owner,sum(selling_price) as total from cars
+group by owner having total>1000000;
+-- 9.Calculate average kilometers driven for each brand.
+select brand ,avg(km_driven)
+as avg_km from cars group by brand;
+
+-- 10.Find out brands that have more than
+--  one car listed in the dataset.
+
+select brand , count(*) as no_of_car from cars group by
+brand having no_of_car>1;
+
+ 
+
+
+
+
+
+
+
+
+
