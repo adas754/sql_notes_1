@@ -1,0 +1,68 @@
+insert into dept values
+(1, 'it', 'mumbai'),
+(2, 'hr', 'delhi'),
+(3, 'finance', 'bangalore'),
+(4, 'marketing', 'chennai'),
+(5, 'operations', 'pune');
+insert into emp values
+(101, 'amit', 75000, 1),
+(102, 'priya', 55000, 2),
+(103, 'rahul', 65000, 1),
+(104, 'sneha', 45000, 3),
+(105, 'ananya', 70000, null);
+-- Retrieve employee names along with their department names.
+select emp_name,dept_name from emp t1 join dept t2 on
+t1.dept_id=t2.dept_id;
+
+-- Display all employees including those without a department.
+select emp_name,dept_name from emp t1 left join dept t2 on
+t1.dept_id=t2.dept_id;
+
+-- Find employees not assigned to any department.
+select emp_name,dept_name from emp t1 left join dept t2
+on t1.dept_id=t2.dept_id where t2.dept_id is null;
+
+-- Find departments with no employees.
+select dept_name,emp_name from emp t1 right join dept t2
+on t1.dept_id=t2.dept_id where t1.emp_name is null;
+
+-- Display employee names with department locations.
+select emp_name,dept_location from emp t1 join dept t2
+on t1.dept_id=t2.dept_id;
+-- Count number of employees in each department.
+select dept_name ,count(emp_name) as total_emp
+from emp t1 right join dept t2 on t1.dept_id=t2.dept_id
+group by t2.dept_name;
+
+-- List employees working in IT department.
+
+select emp_name ,dept_name from emp t1 inner join dept t2 
+on t1.dept_id=t2.dept_id 
+where dept_name='it';
+-- Display all combinations of employees and departments.
+
+select* from emp t1 cross join dept t2;
+
+Retrieve employees 
+with salary greater than 60000 along with department names.
+select salary,dept_name from emp t1 join dept t2
+on t1.dept_id=t2.dept_id having salary> 60000;
+
+select * from sales where sales= (select
+ min(sales) from sales);
+
+-- movies.csv in mysql workbench
+-- 1. highest profit movie
+select * from movies where gross-budget=(select max(gross-
+budget) from movies);
+
+
+-- find how many movie rating 
+-- greater than avg all movie rating
+select count(*) from movies where score
+ >(select avg(score) from movies);
+
+-- find highest rated movie on 2000
+select* from movies where year=2000 and score=(
+select max(score) from movies where year='2000');
+
