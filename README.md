@@ -14,3 +14,4 @@
 # mar sql day 5 eve - https://github.com/adas754/sql_notes_1/blob/main/15%20eve%20mar.txt
 # car question answer - https://github.com/adas754/sql_notes_1/blob/main/car%20question%20solved.txt
 # https://github.com/adas754/sql_notes_1/blob/main/join%202.txt -  joins part 1
+# day 7 
