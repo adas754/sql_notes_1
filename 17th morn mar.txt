@@ -1,0 +1,134 @@
+select* from membership  t1 inner join users1 t2
+on t1.user_id=t2.user_id;
+
+select t1.user_id,t1.membership_id,t1.group_id,
+t2.name,
+t2.emergency_contact,t2.age from membership t1
+left join users1 t2
+on t1.user_id = t2.user_id;
+select* from membership  t1  inner join users1 t2
+on t1.user_id=t2.user_id;
+
+
+select* from membership  t1 join users1 t2
+on t1.user_id=t2.user_id;
+
+
+select* from membership  t1  left join users1 t2
+on t1.user_id=t2.user_id
+union
+select* from membership  t1  right join users1 t2
+on t1.user_id=t2.user_id;
+
+select*from users1 t1 
+join users1 t2 on 
+t1.user_id=t2.emergency_contact;
+
+
+-- find orderid,name,city
+
+-- flip_order order_id ,user_id,order_date
+-- flip_user user_id,name,state,city
+-- every order placed from pune
+select t1.order_id,t2.name,t2.city from 
+flip_order
+t1 join flip_user t2 
+where city ='pune';
+
+select t1.order_id,t2.name,t2.city from 
+flip_order
+t1 join flip_user t2 on t1.user_id=t2.user_id;
+
+-- flip_order_details order_id, amount,profit
+-- quantity , category_id
+t1
+-- flip_category category_id, category, vartical
+t2
+-- order_id , category
+select t1.order_id,t2.category from
+flip_order_details t1 join flip_category on
+t1.category_id=t2.category_id;
+
+
+flip_order order_id,user_id,order_date
+flip_user   user_id,name,state,city
+flip_category  category_id,category,vartical
+flip_order_details order_id ,amount ,profit,quantity
+,category_id
+-- profit where chair category
+
+select t1.vertical,t2.profit from flip_category
+t1 join flip_order_details t2 on t1.category_id=
+t2.category_id where t1.vertical='chairs';
+
+dept table
+dept_id primary key ,dept_name
+,dep_location
+create table dept(
+dept_id int primary key,
+dept_name varchar(20),
+dept_loacation varchar(30);
+-------------
+create table emp(
+emp_id int primary key,
+emp_name varchar(30),
+salary decimal(10,2),
+dept_id int,
+foreign key(dept_id)references dept(dept_id));
+
+
+insert into dept values
+(1, 'it', 'mumbai'),
+(2, 'hr', 'delhi'),
+(3, 'finance', 'bangalore'),
+(4, 'marketing', 'chennai'),
+(5, 'operations', 'pune');
+
+insert into emp values
+(101, 'amit', 75000, 1),
+(102, 'priya', 55000, 2),
+(103, 'rahul', 65000, 1),
+(104, 'sneha', 45000, 3),
+(105, 'ananya', 70000, null);
+
+-- try to find out all emp_name and dept_name
+
+select t1.dept_name,t2.emp_name from dept t1 join emp t2
+on t1.dept_id=t2.dept_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
