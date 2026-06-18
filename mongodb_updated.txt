@@ -1,0 +1,56 @@
+use emp
+db.createCollection('employee')
+db.employee.
+insertOne
+({'name':'ad','dept':'ai','age':28})
+db.employee.find()
+-- student
+db.createCollection('student')
+db.student.
+insertOne
+({'name':'ad','id':1,'age':18})
+db.student.find()
+-----------------------------
+db.student.insertMany
+([{'name':'ak','sub':'math'},
+{'score':90,'class':1},
+{'grade':'a','coding_score':87}])
+----------------------------------
+db.student.insertMany
+([{'section':'a','hobby':'song'},
+{'sports':'boxing','fees':8000},
+{'fav_sub':'ai','class_teacher':'ak'}])
+------------------------------------
+coding score 87 to 90
+db.student.updateOne
+({'coding_score':87},
+{$set:{'coding_score':90}})
+-----------------------------
+sec a to b
+db.student.updateOne({'section':'a'},
+{$set:{'section':'b'}})
+-------------------------------
+db.student.insertOne
+({'name':'ad','grade':'a'})
+-----------------------------------
+db.student.updateMany({'name':'ad'},
+{$set:{'name':'ak'}})
+-------------------------------
+db.student.deleteOne({'name':'ak'})
+-----------------------------------
+db.student.deleteMany({'name':'ak'})
+-----------------------------------
+will delete fav_sub:'ai'
+we will keep class_teacher
+db.student.updateOne({'fav_sub':'ai'},
+{$set:{'fav_sub':null}})
+---------------------------
+keep sports 
+delete the fees
+db.student.updateOne({'fees':8000},
+{$set:{'fees':8000}})
+-----------------------------
+db.student.insertOne({name:'ad',score:90})
+
+
+
