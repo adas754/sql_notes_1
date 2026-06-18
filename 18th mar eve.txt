@@ -1,0 +1,54 @@
+create course table
+course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    duration VARCHAR(20)
+
+student table
+s_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    course_id INT,
+
+
+
+ CREATE TABLE Courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    duration VARCHAR(20)
+);
+------------------------------
+CREATE TABLE Students (
+    stu_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    course_id INT,
+    FOREIGN KEY (course_id) 
+REFERENCES Courses(course_id)
+);
+---------------------------------
+INSERT INTO Courses (course_id, 
+course_name, duration) VALUES
+(101, 'Math', '3 months'),
+(102, 'Science', '4 months'),
+(103, 'English', '2 months'),
+(104, 'History', '3 months');
+--------------------------------------
+INSERT INTO Students (stu_id, name,
+ age, course_id) VALUES
+(1, 'Asha', 20, 101),
+(2, 'Ravi', 22, 102),
+(3, 'Priya', 21, 103),
+(4, 'Karan', 23, 101),
+(5, 'Neha', 20, NULL);
+------------------------
+-- List students enrolled in "Math".
+select t1.name,t2.course_name from students t1 join courses t2
+on t1.course_id=t2.course_id where course_name='math';
+-- Find courses with more than one student.
+select count(*) as total_student,
+course_name from Courses t2 join students t1
+on t1.course_id=t2.course_id group by course_name having total_student>1;
+-- Count courses per student.
+select count(course_name),name from courses t2  right join students t1
+on t1.course_id=t2.course_id group by name;
+
