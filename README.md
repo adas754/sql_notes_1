@@ -16,3 +16,4 @@
 # https://github.com/adas754/sql_notes_1/blob/main/join%202.txt -  joins part 1
 # day 7 - https://github.com/adas754/sql_notes_1/blob/main/17%20eve%20mar.txt
 # mongodb - https://github.com/adas754/sql_notes_1/blob/main/mongodb_updated.txt
+# https://github.com/adas754/sql_notes_1/blob/main/18th%20mar%20eve.txt - sql_students
