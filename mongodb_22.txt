@@ -1,0 +1,27 @@
+use emp # creating the db
+db.createCollection('employee') # creating the collection
+db.employee.insertOne({'emp_id':1,emp_name:'ad',emp_designation:'ds'}
+db.employee.insertOne({'dob':25,emp_age:28,emp_exp:5,emp_salary:5000})
+db.employee.find()
+db.employee.insertMany([{'name':'ak','age':18},
+{'sub':'ds','hobby':'music'},
+{'exp':2,'salary':9000}])
+-- try to add skill, score
+-- salary , dept
+-- manager, bonus
+db.employee.insertMany([{'skill':'typing','score':25},
+{'salary':3000,'dept':'ai'},
+{'manager':'md','bonus':9000}])
+-- name to ad to md
+db.employee.updateOne({'name':'ad'},{$set:{'name':'md'}})
+-- 9000 to 3000
+db.employee.updateOne({'salary':9000},{$set:{'salary':3000}})
+-- updateMany
+-- salary is 3000 
+-- change 3000 to 5000
+db.employee.updateMany({'salary':3000},{$set:{'salary':5000}})
+db.employee.deleteOne({'manager':'md'})
+-- the entire record where salary is 5000
+db.employee.deleteMany({'salary':5000})
+-- keep sub but delete hobby
+db.employee.updateOne({'sub':'ds'},{$set:{'hobby':null}})
