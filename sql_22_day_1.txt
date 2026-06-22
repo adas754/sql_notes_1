@@ -1,0 +1,42 @@
+-- database creation
+-- database name is datamites
+create database datamites;
+-- create the db and the db name will be sql
+create database mysql;
+-- create the db and the db name will be your name
+create database dm101;
+-- how to check database 
+show databases;
+-- how to drop / delete the db
+-- we will drop datamites db
+drop database datamites;
+-- table student
+-- utilize/ use the db
+use dm101;
+-- student table
+-- stu_id
+-- stu_name
+-- stu_age
+-- stu_location
+-- stu_marks
+-- student_class
+-- stu_course
+create table student(
+stu_id int,
+stu_name varchar(20),
+stu_age int,
+stu_location varchar(30),
+stu_marks decimal(10,2),
+stu_class int,
+stu_course varchar(30));
+select* from student;
+-- create the table emp
+-- emp_id
+-- emp_name
+-- emp_doj
+create table emp(
+emp_id int,
+emp_name varchar(10),
+emp_doj datetime);
+
+
