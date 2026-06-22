@@ -18,3 +18,4 @@
 # mongodb - https://github.com/adas754/sql_notes_1/blob/main/mongodb_updated.txt
 # https://github.com/adas754/sql_notes_1/blob/main/18th%20mar%20eve.txt - sql_students
 # https://github.com/adas754/sql_notes_1/blob/main/mongodb_22.txt - > mongodb
+# https://github.com/adas754/sql_notes_1/blob/main/mongodb.ipynb - > python mongodb
