@@ -22,3 +22,4 @@
 # sql_day_1 22 - https://github.com/adas754/sql_notes_1/blob/main/sql_22_day_1.txt
 # sql_day_2 23 - https://github.com/adas754/sql_notes_1/blob/main/23%20sql%20day2.txt
 #  sql_day_3 24 - https://github.com/adas754/sql_notes_1/blob/main/24th%20mar%20dbm'.txt
+# sql_day_4 25 - https://github.com/adas754/sql_notes_1/blob/main/25%20mar%20sql.txt
