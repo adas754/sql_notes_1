@@ -1,0 +1,83 @@
+create database dm23;
+use dm23;
+-- emp
+-- emp_id
+-- emp_name
+create table emp(
+emp_id int not null,
+emp_name varchar(30));
+insert into emp(emp_id,emp_name) values(3,'ad');
+------------------------------
+create table emp34(
+emp_id int unique,
+emp_name varchar(30));
+insert into emp34(emp_id,emp_name) values(3,'ad'),
+(30,'ak');
+-------------------
+create table emp340(
+emp_id int primary key, -- unique+not null
+emp_name varchar(30));
+insert into emp340(emp_id,emp_name) values(3,'ad'),
+(56,'ak');
+select*from emp340;
+---------
+create table stu(
+stu_id int primary key,
+stu_age int check(stu_age>18));
+insert into stu(stu_id,stu_age) values(1,19);
+------------------------
+create table ticket(
+t_id int primary key auto_increment,
+p_name varchar(30),
+train_time datetime default current_timestamp);
+insert into ticket(p_name) values('ad'),('ak'),('aks');
+-------------
+-- emp
+-- emp_id primary key auto_increment
+-- emp_name
+-- emp_age 20
+--------------------------------
+create table emp26(
+emp_id int primary key auto_increment,
+emp_name varchar(10),
+emp_AGe int default 20)
+auto_increment=10;
+insert into emp26(emp_name) values('a'),('s'),('d');
+-- emplo
+-- emp_id varchar(30)
+-- emp_name varchar(20)
+-- emp_des varchar(30)
+-- emp_age int
+
+create table emplo(
+emp_id varchar(30),
+emp_name varchar(20),
+emp_des varchar(10),
+emp_age int);
+
+insert into emplo(emp_id,emp_name,emp_des,emp_age)
+values(1,'ad','ds',25),
+(2,'aks','bde',35),
+(3,'ak','da',19),
+(4,'kb','ae',27),
+(5,'ib','pm',25);
+-- emp_des 'ds'
+-- hr
+update emplo set emp_des='hr'
+where emp_des='ds';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
