@@ -1,0 +1,163 @@
+use dm23;
+select*from emplo;
+- emp_id is 4
+-- age
+-- age 27 to 36
+update emplo set emp_age=36 
+where emp_id=4;
+-- where id is 5
+-- pm to  cto
+-- age 25 to 27
+update emplo set emp_des='cto',
+emp_age=27
+where emp_id=5;
+
+-- emp_id is 3 
+-- delete the entire row
+delete from emplo where emp_id=3;
+-- where emp_id is 4
+-- you want to keep entire record
+-- except that emp_name
+update emplo set emp_name=null
+where emp_id=4;
+-- new column
+-- emp_exp
+-- int
+alter table emplo add emp_exp int;
+-- update the emp_exp=4
+-- where emp_id is 1
+update emplo set emp_exp=4 
+where emp_id=1;
+-- drop emp_exp
+alter table emplo drop emp_exp;
+-- emp_des datatype 
+-- varchar(10)
+-- modify varchar(10) to varchar(30)
+alter table emplo modify emp_des
+varchar(30);
+alter table emplo modify emp_id
+int;
+-- emp_age 
+-- emp_age to employee_age
+alter table emplo rename column
+emp_age to employee_age;
+-- emp_des to emp_designation
+alter table emplo rename column
+emp_des to emp_designation;
+-- change the table name
+alter table emplo rename to emplo65;
+truncate table emplo65;
+drop table emplo65;
+-- try to find out how many unique
+-- subcategory is there
+select orderid as id from sales;
+-- extract data where sales is greater
+-- than 50
+select* from sales where sales>50;
+-- try to find out the data where
+-- region is west
+select * from sales where region='west';
+-- try to find out only the
+-- technology related data
+select* from sales
+ where category='technology';
+
+-- try to find out the quantity greater
+-- than equal to 10
+select* from sales where quantity>=10;
+
+-- and gate
+a b y
+0 0 0
+0 1 0
+1 0 0
+1 1 1
+-- where state = texas
+-- category is technology
+select* from sales where category='
+technology' and state='texas';
+
+-- try to find out the data where 
+-- subcategory is paper
+-- sales >10
+-- state= texas
+select*from sales where subcategory='paper'
+and sales>10 and state='texas';
+
+
+a b y
+0 0 0
+0 1 1
+1 0 1
+1 1 1
+-- subcategory paper
+-- phones is there
+select * from sales where subcategory='phones'
+or subcategory='paper';
+-- try to find out 
+-- region is west and east
+select* from sales where region='west'
+or region='east';
+-- i dont want data from central
+select* from sales where not region=
+'central';
+-- extract the data where technology
+-- will be not there
+select * from sales where not category=
+'technology';
+-- sales will be in asc order
+select* from sales order by sales;
+select* from sales order by sales desc;
+select* from sales order by sales asc;
+-- try to find out data where category 
+-- technology
+-- sales desc 
+-- in that category 
+-- we will check is there any null
+-- value or not
+
+-- in that region 
+-- is there any null value
+select* from sales where region is null;
+select*from sales order by sales limit 5;
+-- try to extract the 10 data
+-- where category is technology
+-- sales in desc order
+select * from sales where category ='technology'
+order by sales desc limit 10;
+
+-- 2nd 3rd and 4th largest
+-- data
+select * from sales 
+where subcategory in
+('phones','art','paper');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
