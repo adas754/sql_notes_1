@@ -1,0 +1,124 @@
+-- use database
+use dm23;
+-- try to find out the data where only
+-- art is avilable
+-- try to find out the data
+-- where region is east and west
+select* from sales where
+region='east' or region='west';
+select * from sales where region in
+('east','west');
+--  try to find out data 
+-- where category furniture
+-- region is east
+-- sales >5
+select* from sales where 
+category='furniture' and 
+region='east' and sales>5;
+-- 2nd and 3rd largest profit
+-- based on east region
+select*from sales where region=
+'east' order by profit desc limit 1,2;
+
+
+select*from sales 
+order by str_to_date
+(shipdate,'%d-%m-%Y') asc;
+
+select* from sales
+where quantity between 5 and 10;
+
+-- try to find out the data where
+-- sales in between 10 to 20
+select*from sales where sales between 
+10 and 20;
+
+-- try to find out the data
+-- using like
+-- where region is 'east'
+select* from sales where region
+like 'e%';
+select* from sales where region
+like 'e%t';
+select* from sales where region
+like 'e___';
+select* from sales where region
+like '%as%';
+
+-- try to find out data
+-- subcategory is phones
+select* from sales where subcategory
+like 'p%s';
+select* from sales where subcategory
+like '%on%';
+select* from sales where category
+like 't%y';
+
+-- how many unique subcategory is there
+select count(distinct subcategory)
+from sales;
+
+-- how many unique region is there
+select count(distinct region) from 
+sales;
+
+-- how many time technology is there
+select count(*) from sales 
+where category='technology';
+-- how many times art is there
+-- how many times category is 
+-- technology and state is texas
+select count(*) from
+sales where category='technology'
+and state='texas';
+-- find out the total sales
+select sum(sales) from sales;
+select round(sum(sales),2) from sales;
+-- total profit where
+-- the region is south
+select round(sum(profit),2) from sales
+where region='south';
+-- try to find out avg quantity
+-- where the segment is consumer
+select avg(quantity) from sales
+where segment='consumer';
+-- try to find minimum profit
+-- where region is central
+-- try to find out maximum sales
+-- where subcategory is phones
+select min(profit) from sales where
+region='central';
+select max(sales) from sales where
+subcategory='phones';
+-- try to find total sales
+-- based on region
+select region,sum(sales) from sales
+group by region;
+-- try to find out total sales
+-- for each and every category
+select category,sum(sales) from
+sales group by category;
+-- find out avg quantity for each and
+-- every segment
+select segment,avg(quantity) 
+from sales group by segment;
+-- find out the total 1st 5
+profit based
+-- on subcategory
+-- profit desc 
+select subcategory,sum(profit) from
+sales group by 
+subcategory having sum(profit)>200;
+
+select subcategory,sum(profit) from
+sales group by subcategory order by
+sum(profit) desc limit 5;
+select subcategory,sum(profit) from
+sales group by subcategory 
+having sum(profit)>200 order 
+by sum(profit) desc limit 5;
+
+group by having order by
+
+
+
