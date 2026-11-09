@@ -23,3 +23,27 @@
 # sql_day_2 23 - https://github.com/adas754/sql_notes_1/blob/main/23%20sql%20day2.txt
 #  sql_day_3 24 - https://github.com/adas754/sql_notes_1/blob/main/24th%20mar%20dbm'.txt
 # sql_day_4 25 - https://github.com/adas754/sql_notes_1/blob/main/25%20mar%20sql.txt
+# CREATE TABLE marks (
+ student_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    branch VARCHAR(255),
+    marks INTEGER
+);
+
+INSERT INTO marks (name,branch,marks)VALUES 
+('Nitish','EEE',82),
+('Rishabh','EEE',91),
+('Anukant','EEE',69),
+('Rupesh','EEE',55),
+('Shubham','CSE',78),
+('Ved','CSE',43),
+('Deepak','CSE',98),
+('Arpan','CSE',95),
+('Vinay','ECE',95),
+('Ankit','ECE',88),
+('Anand','ECE',81),
+('Rohit','ECE',95),
+('Prashant','MECH',75),
+('Amit','MECH',69),
+('Sunny','MECH',39),
+('Gautam','MECH',51)
