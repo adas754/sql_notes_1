@@ -1,0 +1,608 @@
+use college3
+switched to db college3
+use college3 --create
+already on db college3
+db.createCollection('college_db')
+
+db.college_db.insertOne({'name':ad,'id':1,'dept':'ai'})
+ReferenceError: ad is not defined
+db.college_db.insertOne({'name':'ad','id':1,'dept':'ai'})
+
+db.college_db.insertOne
+({emp_name:'ad',emp_id:1,dept:'ai'})
+
+                                                                                                                                  ^
+db.college_db.
+insertMany([{emp_id:1,emp_name:'ad',
+'city':'blr'},
+{'dept':'ai','age':30,'salary':30},
+{'name':'ad','branch':'ds','location':
+'blr'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6af4611859374842647788b3'),
+    '1': ObjectId('6af4611859374842647788b4'),
+    '2': ObjectId('6af4611859374842647788b5')
+  }
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+db.college_db.findOne()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+db.college_db.find({}
+, {name:1, city:1, _id:0})
+{
+  name: 'ad'
+}
+{}
+{
+  city: 'blr'
+}
+{}
+{
+  name: 'ad'
+}
+db.college_db.find({}
+, {name:1, city:1})
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2')
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4')
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad'
+}
+db.college_db.find({city:"blr"})
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+db.college_db.find({age:{$gt:21}})
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+db.college_db.find({age:{$lt:22}})
+db.college_db.find({age:{$gte:21}})
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+db.college_db.find({age:{$lte:30}})
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+db.college_db.find({city:{$ne:"pune"}})
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+db.college_db.find({
+
+    $and: [
+
+        { age: { $gt: 20 } },
+
+        { city: "blr" }
+
+    ]})
+db.college_db.find({
+
+    $and: [
+
+        { age: { $gt: 20 } },
+
+        { city: "blr" }
+
+    ]})
+db.college_db.find({
+
+    $and: [
+
+        { age: { $gt: 20 } },
+
+        { dept: "ai" }
+
+    ]})
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+db.college_db.insertOne({'name':'g','city':'pune'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6af4662359374842647788b6')
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.find({
+    $or:[
+        {city:"pune"},
+        {city:"blr"}
+    ]
+})
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.updateOne(
+    {name:"ad"},
+    {$set:{branch:'da'}}
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'ad',
+  id: 1,
+  dept: 'ai',
+  branch: 'da'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'ad',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.updateMany(
+    {name:"ad"},
+    {$set:{name:"am"}}
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45d7859374842647788b1'),
+  name: 'am',
+  id: 1,
+  dept: 'ai',
+  branch: 'da'
+}
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.deleteOne({name:"am"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af45e6e59374842647788b2'),
+  emp_name: 'ad',
+  emp_id: 1,
+  dept: 'ai'
+}
+{
+  _id: ObjectId('6af4611859374842647788b3'),
+  emp_id: 1,
+  emp_name: 'ad',
+  city: 'blr'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.deleteMany({emp_name:"ad"})
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.countDocuments()
+3
+db.college_db.find().sort({age:1})
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+db.college_db.insertOne({'name':'g','city':'pune','age':34})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6af46a4959374842647788b7')
+}
+db.college_db.find().sort({age:1})
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af46a4959374842647788b7'),
+  name: 'g',
+  city: 'pune',
+  age: 34
+}
+db.college_db.find().sort({age:-1})
+{
+  _id: ObjectId('6af46a4959374842647788b7'),
+  name: 'g',
+  city: 'pune',
+  age: 34
+}
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+db.college_db.find()
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+{
+  _id: ObjectId('6af46a4959374842647788b7'),
+  name: 'g',
+  city: 'pune',
+  age: 34
+}
+db.college_db.find().limit(2)
+{
+  _id: ObjectId('6af4611859374842647788b4'),
+  dept: 'ai',
+  age: 30,
+  salary: 30
+}
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+db.college_db.find().skip(1)
+{
+  _id: ObjectId('6af4611859374842647788b5'),
+  name: 'am',
+  branch: 'ds',
+  location: 'blr'
+}
+{
+  _id: ObjectId('6af4662359374842647788b6'),
+  name: 'g',
+  city: 'pune'
+}
+{
+  _id: ObjectId('6af46a4959374842647788b7'),
+  name: 'g',
+  city: 'pune',
+  age: 34
+}
+db.college_db.drop()
+true
+db.college_db.find()
+db.dropDatabase()
+{ ok: 1, dropped: 'college3' }
+college3
+Selection deleted
+
+
